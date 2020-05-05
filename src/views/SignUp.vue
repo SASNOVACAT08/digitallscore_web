@@ -4,15 +4,25 @@
       {{ error.message }}
       <a class="close" @click.prevent="dismissError">dismiss</a>
     </div>
-    <form method="post" @submit.prevent="onSubmit(email, password)">
+    <form
+      method="post"
+      @submit.prevent="onSubmit(email, password, firstname, name)"
+    >
+      <input
+        v-model="firstname"
+        type="text"
+        name="firstname"
+        placeholder="Prénom"
+      />
+      <input v-model="name" type="text" name="name" placeholder="Nom" />
       <input v-model="email" type="email" name="email" placeholder="Email" />
       <input
         v-model="password"
         type="password"
         name="password"
-        placeholder="Password"
+        placeholder="Mot de passe"
       />
-      <button type="submit">Sign Up</button>
+      <button type="submit">S'inscrire</button>
     </form>
   </div>
 </template>
@@ -27,25 +37,32 @@ export default {
     const { $store } = context.root;
     const email = ref("");
     const password = ref("");
+    const firstname = ref("");
+    const name = ref("");
     const error = ref(null);
     function dismissError() {
       error.value = null;
     }
-    function onSubmit(email, password) {
+    function onSubmit(email, password, firstname, name) {
+      console.log(email);
+
       dismissError();
       // Automatically log the user in after successful signup.
-      new User({ email, password })
+      new User({ email, password, firstname, name })
         .save()
         .then(() =>
           $store.dispatch("auth/authenticate", {
             strategy: "local",
             email,
-            password
+            password,
+            firstname,
+            name
           })
         )
         // Just use the returned error instead of mapping it from the store.
         .catch(err => {
           // Convert the error to a plain object and add a message.
+          console.log(err);
           let type = err.errorType;
           err = Object.assign({}, err);
           err.message =
@@ -58,6 +75,8 @@ export default {
     return {
       email,
       password,
+      firstname,
+      name,
       error,
       dismissError,
       onSubmit
