@@ -5,7 +5,6 @@
 </template>
 <script>
 export default {
-  name: "Details",
-  setup(props, context) {}
+  name: "Details"
 };
 </script>
