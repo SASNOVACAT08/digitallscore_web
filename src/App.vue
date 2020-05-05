@@ -9,6 +9,9 @@
         >Register</router-link
       >
       <p v-if="$store.state.auth.user" @click="logout">Log out</p>
+      <router-link v-if="$store.state.auth.user" to="/campaigns"
+        >Campaigns</router-link
+      >
     </div>
     <router-view />
   </div>
