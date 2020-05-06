@@ -54,9 +54,7 @@ export default {
           $store.dispatch("auth/authenticate", {
             strategy: "local",
             email,
-            password,
-            firstname,
-            name
+            password
           })
         )
         // Just use the returned error instead of mapping it from the store.
