@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link>
-      <router-link v-if="!$store.state.auth.user" to="/sign"
+      <router-link :to="{ name: 'home' }">Home</router-link>
+      <router-link v-if="!$store.state.auth.user" :to="{ name: 'signin' }"
         >Sign In</router-link
       >
-      <router-link v-if="!$store.state.auth.user" to="/register"
+      <router-link v-if="!$store.state.auth.user" :to="{ name: 'signup' }"
         >Register</router-link
       >
       <p v-if="$store.state.auth.user" @click="logout">Log out</p>
-      <router-link v-if="$store.state.auth.user" to="/campaigns"
+      <router-link v-if="$store.state.auth.user" :to="{ name: 'campaigns' }"
         >Campaigns</router-link
+      >
+      <router-link v-if="$store.state.auth.user" :to="{ name: 'kpi' }"
+        >KPI</router-link
       >
     </div>
     <router-view />

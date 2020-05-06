@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link to="/campaigns/create">Create</router-link>
+    <router-link :to="{ name: 'create_campaigns' }">Create</router-link>
     <li v-for="campaign in campaigns" :key="campaign.id">
       {{ campaign.name }}
     </li>

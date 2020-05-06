@@ -12,12 +12,12 @@ import Kpi from "../views/Kpi.vue";
 Vue.use(VueRouter);
 
 const routes = [
-  { path: "/", name: "Home", component: Home },
-  { path: "/sign", name: "SignIn", component: SignIn },
-  { path: "/register", name: "SignUp", component: SignUp },
-  { path: "/campaigns", name: "Campaigns", component: Campaigns },
-  { path: "/campaigns/create", name: "Create_Campaigns", component: Create },
-  { path: "/campaigns/:id", name: "Details_campaigns", component: Details },
+  { path: "/", name: "home", component: Home },
+  { path: "/sign", name: "signin", component: SignIn },
+  { path: "/register", name: "signup", component: SignUp },
+  { path: "/campaigns", name: "campaigns", component: Campaigns },
+  { path: "/campaigns/create", name: "create_campaigns", component: Create },
+  { path: "/campaigns/:id", name: "details_campaigns", component: Details },
   { path: "/kpi", name: "kpi", component: Kpi }
 ];
 const router = new VueRouter({ routes });
