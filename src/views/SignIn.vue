@@ -1,6 +1,5 @@
 <template>
   <div>
-    
     <div v-if="error">
       {{ error.message }}
       <a class="close" @click.prevent="dismissError">dismiss</a>

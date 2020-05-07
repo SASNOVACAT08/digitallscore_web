@@ -8,7 +8,7 @@
       method="post"
       @submit.prevent="onSubmit(email, password, firstname, name)"
     >
-    <h1>INSCRIPTION</h1>
+      <h1>INSCRIPTION</h1>
       <input
         v-model="firstname"
         type="text"

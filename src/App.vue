@@ -1,13 +1,16 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link :to="{ name: 'home' }">Home</router-link>
-      <router-link v-if="!$store.state.auth.user" :to="{ name: 'signin' }"
+    <div class="nav" id="nav">
+      <router-link  class="button"    :to="{ name: 'home' }">Home</router-link>
+      
+      <router-link class="button" v-if="!$store.state.auth.user " :to="{ name: 'signin' }"
         >Sign In</router-link
       >
-      <router-link v-if="!$store.state.auth.user" :to="{ name: 'signup' }"
+      
+      <router-link class="button" v-if="!$store.state.auth.user " :to="{ name: 'signup' }"
         >Register</router-link
       >
+      
       <p v-if="$store.state.auth.user" @click="logout">Log out</p>
       <router-link v-if="$store.state.auth.user" :to="{ name: 'campaigns' }"
         >Campaigns</router-link
@@ -15,12 +18,14 @@
       <router-link v-if="$store.state.auth.user" :to="{ name: 'kpi' }"
         >KPI</router-link
       >
+   
     </div>
     <router-view />
   </div>
 </template>
 
 <script>
+
 import { onMounted } from "@vue/composition-api";
 
 export default {
@@ -41,7 +46,11 @@ export default {
     };
   }
 };
+
+
 </script>
+
+
 <style>
 body{
   background: black;
@@ -84,9 +93,28 @@ button[type=submit] {
     top: 10em;
     
 }
-  
-  
-
+.nav {
+    
+    width: 100%;
+    position: relative;
+    left: 5%;
+    font-size:25px;
+    top: 10em;
+   float: left;
+   display: block;
+}
+.button{
+    background-color: #10bce2;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    display: block;
+    width: 20%;
+    
+    }
+    
 
 
 
