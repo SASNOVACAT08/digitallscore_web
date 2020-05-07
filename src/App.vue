@@ -53,7 +53,7 @@ export default {
 
 <style>
 body{
-  background: black;
+  background: white;
 }
 
 form {
@@ -93,16 +93,7 @@ button[type=submit] {
     top: 10em;
     
 }
-.nav {
-    
-    width: 100%;
-    position: relative;
-    left: 5%;
-    font-size:25px;
-    top: 10em;
-   float: left;
-   display: block;
-}
+
 .button{
     background-color: #10bce2;
     color: white;
@@ -110,7 +101,6 @@ button[type=submit] {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    display: block;
     width: 20%;
     
     }
