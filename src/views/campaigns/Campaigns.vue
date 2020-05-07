@@ -2,7 +2,10 @@
   <div>
     <router-link :to="{ name: 'create_campaigns' }">Create</router-link>
     <li v-for="campaign in campaigns" :key="campaign.id">
-      {{ campaign.name }}
+      <router-link
+        :to="{ name: 'details_campaigns', params: { id: campaign.id } }"
+        >{{ campaign.name }}</router-link
+      >
     </li>
   </div>
 </template>
