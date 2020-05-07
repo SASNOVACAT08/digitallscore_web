@@ -24,7 +24,7 @@ import { ref } from "@vue/composition-api";
 export default {
   name: "SignIn",
   setup(props, context) {
-    const { $store } = context.root;
+    const { $store, $router } = context.root;
     const email = ref("");
     const password = ref("");
     const error = ref(null);
@@ -33,7 +33,7 @@ export default {
     }
     function onSubmit(email, password) {
       $store
-        .dispatch("auth/authenticate", { strategy: "local", email, password })
+        .dispatch("auth/authenticate", { strategy: "local", email, password }).then(() => $router.push('/'))
         // Just use the returned error instead of mapping it from the store.
         .catch(err => {
           // Convert the error to a plain object and add a message.
