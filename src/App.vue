@@ -42,4 +42,61 @@ export default {
   }
 };
 </script>
-<style></style>
+<style>
+body{
+  background: black;
+}
+
+form {
+  box-sizing: border-box;
+  height: 50em;
+    width:50%;
+    padding: 30px;
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    float: right;
+    position: relative;
+    
+
+    }
+
+input[type=email], input[type=password] ,input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    position: relative;
+    top: 10em;
+}
+button[type=submit] {
+    background-color: #10bce2;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    position: relative;
+    left: 25%;
+    font-size:25px;
+    top: 10em;
+    
+}
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>

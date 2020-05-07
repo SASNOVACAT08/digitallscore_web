@@ -1,10 +1,12 @@
 <template>
   <div>
+    
     <div v-if="error">
       {{ error.message }}
       <a class="close" @click.prevent="dismissError">dismiss</a>
     </div>
     <form method="post" @submit.prevent="onSubmit(email, password)">
+      <h1>CONNEXION</h1>
       <input v-model="email" type="email" name="email" placeholder="Email" />
       <input
         v-model="password"
