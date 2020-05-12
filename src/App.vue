@@ -103,9 +103,8 @@ form {
   position: relative;
 }
 
-input[type="email"],
-input[type="password"],
-input[type="text"] {
+input,
+select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
