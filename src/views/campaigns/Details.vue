@@ -17,15 +17,12 @@
         :key="objective.id"
       >
         <h2>{{ objective.objective.name }}</h2>
-        <div
-          v-for="kpi in objective.kpis"
-          :key="kpi.kpi_campaigns_objectives.id"
-        >
-          <span>{{ kpi.name }} </span>
-          <span>{{ kpi.kpi_campaigns_objectives.weight }} </span>
-          <span>{{ kpi.kpi_campaigns_objectives.objectivesValue }} </span>
+        <div v-for="kpi in objective.kpi_campaigns_objectives" :key="kpi.id">
+          <span>{{ kpi.kpi.name }} </span>
+          <span>{{ kpi.weight }} </span>
+          <span>{{ kpi.objectivesValue }} </span>
         </div>
-        <InputKpi :id="objective.id" />
+        <InputKpi :id="objective.id" :campaign="campaigns.id" />
       </div>
     </div>
     <div v-else-if="isPending">Loading</div>

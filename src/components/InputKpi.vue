@@ -27,7 +27,8 @@ import { useFind } from "feathers-vuex";
 export default {
   name: "InputKpi",
   props: {
-    id: Number
+    id: Number,
+    campaign: Number
   },
   setup(props, context) {
     const { $store } = context.root;
@@ -45,12 +46,17 @@ export default {
       params: kpiParams
     });
     function onSubmit(weight, objectivesValue, kpiId) {
-      $store.dispatch("kpi-campaigns-objectives/create", {
-        weight,
-        objectivesValue,
-        campaignsObjectivesId: props.id,
-        kpiId
-      });
+      $store.dispatch("campaigns/patch", [
+        props.campaign,
+        {
+          kpi: {
+            weight: weight,
+            objectivesValue: objectivesValue,
+            campaignsObjectiveId: props.id,
+            kpiId: kpiId
+          }
+        }
+      ]);
     }
     return {
       onSubmit,
