@@ -27,9 +27,16 @@
       <div class="row">
         <div class="col">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item" v-for="kp in kpi" :key="kp.id">{{ kp.name }}</li>
+            <li class="list-group-item" v-for="kp in kpi" :key="kp.id">{{ kp.name }} <span class="btn btn-danger" @click="prepareDeleteKpi(kp.id)"> x</span></li>
           </ul>
         </div>
+      </div>
+      <div v-if="visible">
+        <p>
+        La suppression d'un kpi peut entrainer la suppression d'une partie des
+        campagnes.
+        </p>
+        <button class="btn btn-danger" @click="deleteKpi()">Supprimer quand meme</button>
       </div>
     </div>
   </div>
@@ -41,6 +48,18 @@ import { ref } from "@vue/composition-api";
 
 export default {
   name: "Kpi",
+  data() {
+    return {
+      visible: false,
+      actualDelete: null
+    };
+  },
+  methods: {
+    prepareDeleteKpi(id) {
+      this.visible = true;
+      this.actualDelete = id;
+    }
+  },
   setup(props, context) {
     const { $store, $router } = context.root;
     const { Kpi } = context.root.$FeathersVuex.api;
@@ -60,6 +79,12 @@ export default {
         custom: true
       });
     }
+
+    function deleteKpi() {
+      $store.dispatch("kpi/remove", this.actualDelete);
+      this.actualDelete = null;
+      this.visible = false;
+    }
     function back() {
       $router.back();
     }
@@ -67,6 +92,7 @@ export default {
       kpi,
       onSubmit,
       name,
+      deleteKpi,
       back
     };
   }
