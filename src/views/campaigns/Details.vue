@@ -1,11 +1,17 @@
 <template>
   <div>
     <div v-if="campaigns">
-      <p>{{ campaigns.name }}</p>
-      <p>{{ campaigns.product }}</p>
-      <p>{{ campaigns.advertiser }}</p>
-      <p>{{ campaigns.budget }}</p>
-      <p>{{ campaigns }}</p>
+      <br>
+      <p>Nom de la campagne : {{ campaigns.name }}</p>
+      <br>
+      <p>Produit : {{ campaigns.product }}</p>
+      <br>
+      <p>Annonceur : {{ campaigns.advertiser }}</p>
+      <br>
+      <p>Budget : {{ campaigns.budget }}</p>
+      <br>
+      <p>Debug : {{ campaigns }}</p>
+      <br>
       <div
         v-for="objective in campaigns.campaigns_objectives"
         :key="objective.id"
