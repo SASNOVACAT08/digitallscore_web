@@ -1,5 +1,6 @@
 <template>
-  <form
+  <div id="campagne">
+    <form
     method="post"
     @submit.prevent="onSubmit(advertiser, name, product, budget)"
   >
@@ -14,6 +15,7 @@
     <input v-model="budget" type="number" name="budget" placeholder="Budget" />
     <button type="submit">Create</button>
   </form>
+  </div>
 </template>
 <script>
 import { ref } from "@vue/composition-api";
@@ -55,3 +57,10 @@ export default {
   }
 };
 </script>
+<style scoped>
+#campagne {
+  background-color: #1e1e1e;
+  height: 100vh;
+  width: 100vw;
+}
+</style>

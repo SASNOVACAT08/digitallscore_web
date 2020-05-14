@@ -1,17 +1,13 @@
 <template>
   <div id="app">
-    <div class="nav" id="nav">
-      <ul>
-      <li><router-link :to="{ name: 'home' }">Home</router-link></li>
+      <!-- <li><router-link :to="{ name: 'home' }">Home</router-link></li>
 
 
       <li style="float:right"><router-link v-if="!$store.state.auth.user " :to="{ name: 'signup' }">Register</router-link></li>
 
       <li style="float:right"><router-link v-if="!$store.state.auth.user " :to="{ name: 'signin' }">Sign In</router-link></li>
 
-      <li style="float:right"><a v-if="$store.state.auth.user" @click="logout">Log out</a></li>
-      </ul>
-    </div>
+      <li style="float:right"><a v-if="$store.state.auth.user" @click="logout">Log out</a></li> -->
     <router-view />
   </div>
 </template>
@@ -28,6 +24,7 @@ export default {
           console.error(error);
         }
       });
+      $router.push('/');
     });
     function logout() {
       $store.dispatch("auth/logout");
@@ -59,8 +56,6 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
-	font: inherit;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -94,16 +89,10 @@ body {
 
 form {
   box-sizing: border-box;
-  height: 50em;
-  width: 50%;
   padding: 30px;
-  border: 1px solid #f1f1f1;
-  background: #fff;
-  float: right;
-  position: relative;
 }
 
-input,
+/*input,
 select {
   width: 100%;
   padding: 12px 20px;
@@ -113,7 +102,7 @@ select {
   box-sizing: border-box;
   position: relative;
   top: 10em;
-}
+}*/
 button[type="submit"] {
   background-color: #10bce2;
   color: white;
@@ -138,8 +127,9 @@ button[type="submit"] {
   width: 20%;
 }
 
-.nav {
-
+/*.nav {
+  position: fixed;
+  width: 100vw;
 }
 
 .nav ul {
@@ -162,9 +152,9 @@ button[type="submit"] {
   text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
+
 .nav li a:hover {
   background-color: #111;
-}
+}*/
 
 </style>
