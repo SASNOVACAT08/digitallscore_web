@@ -1,20 +1,63 @@
 <template>
   <div id="campagne">
-    <form
-    method="post"
-    @submit.prevent="onSubmit(advertiser, name, product, budget)"
-  >
-    <input
-      v-model="advertiser"
-      type="text"
-      name="advertiser"
-      placeholder="Advertiser"
-    />
-    <input v-model="name" type="text" name="name" placeholder="Name" />
-    <input v-model="product" type="text" name="product" placeholder="Product" />
-    <input v-model="budget" type="number" name="budget" placeholder="Budget" />
-    <button type="submit">Create</button>
-  </form>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1 class="display-3 text-center m-5 text-white">Création d'une campagne</h1>
+          <div class="text-center m-3">
+            <button class="btn btn-danger btn-sm" @click="back">Retour</button>
+          </div>
+          <form method="post" @submit.prevent="onSubmit(advertiser, name, product, budget)">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-lg text-white" for="advertiser">Annonceur</label>
+              <input
+                class="form-control form-control-lg"
+                type="text"
+                id="advertiser"
+                name="advertiser"
+                v-model="advertiser"
+              />
+            </div>
+            <div class="form-group">
+              <label class="col-form-label col-form-label-lg text-white" for="name">Campagne</label>
+              <input
+                class="form-control form-control-lg"
+                type="text"
+                id="name"
+                name="name"
+                v-model="name"
+              />
+            </div>
+            <div class="form-group">
+              <label
+                class="col-form-label col-form-label-lg text-white"
+                for="product"
+              >Marque / Produit</label>
+              <input
+                class="form-control form-control-lg"
+                type="text"
+                id="product"
+                name="product"
+                v-model="product"
+              />
+            </div>
+            <div class="form-group">
+              <label class="col-form-label col-form-label-lg text-white" for="advertiser">Budget</label>
+              <input
+                class="form-control form-control-lg"
+                type="number"
+                id="budget"
+                name="budget"
+                v-model="budget"
+              />
+            </div>
+            <div class="form-group">
+              <input class="btn btn-primary btn-block btn-lg" type="submit" value="Créer" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -34,16 +77,19 @@ export default {
       error.value = null;
     }
     function onSubmit(advertiser, name, product, budget) {
-      $store.dispatch("campaigns/create", {
-        advertiser,
-        name,
-        product,
-        budget,
-        ended: false,
-        startedAt: "2010-10-10",
-        endedAt: "2010-10-10"
-      });
-      $router.push("/campaigns");
+      $store
+        .dispatch("campaigns/create", {
+          advertiser,
+          name,
+          product,
+          budget,
+          ended: false,
+          startedAt: "2010-10-10",
+          endedAt: "2010-10-10"
+        })
+        .then(() => {
+          $router.push({ name: "campaigns" });
+        });
     }
     return {
       advertiser,

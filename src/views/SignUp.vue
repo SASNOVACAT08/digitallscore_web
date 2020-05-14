@@ -8,7 +8,7 @@
         <h2 class="display-4 mt-5">INSCRIPTION</h2>
         <div class="alert alert-dismissible alert-danger" v-if="error">
           <button type="button" class="close" data-dismiss="alert" @click="dismissError">&times;</button>
-          <h4 class="alert-heading">Une erreur est survenue lors de la connexion :</h4>
+          <h4 class="alert-heading">Une erreur est survenue lors de l'inscription :</h4>
           <p class="mb-0">{{ error.message }}</p>
         </div>
         <div class="mt-5">
