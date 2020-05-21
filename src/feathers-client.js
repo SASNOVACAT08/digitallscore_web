@@ -4,7 +4,7 @@ import auth from "@feathersjs/authentication-client";
 import io from "socket.io-client";
 import feathersVuex from "feathers-vuex";
 
-const socket = io("http://localhost:3030", { transports: ["websocket"] });
+const socket = io("https://digitallscore-api.herokuapp.com", { transports: ["websocket"] });
 
 const feathersClient = feathers()
   .configure(socketio(socket))
