@@ -39,7 +39,7 @@ export default {
 
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -50,7 +50,7 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+figure, figcaption,  header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -60,8 +60,17 @@ time, mark, audio, video {
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+header, hgroup, menu, nav, section {
 	display: block;
+}
+
+#home{
+height: 100vh;
+ background-image: url("/img/home.png");
+  background-position: center;
+  background-size: cover;
+ 
+ 
 }
 body {
 	line-height: 1;
@@ -87,74 +96,8 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-form {
-  box-sizing: border-box;
-  padding: 30px;
-}
-
-/*input,
-select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  position: relative;
-  top: 10em;
-}*/
-button[type="submit"] {
-  background-color: #10bce2;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 50%;
-  position: relative;
-  left: 25%;
-  font-size: 25px;
-  top: 10em;
-}
-
-.button {
-  background-color: #10bce2;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 20%;
-}
-
-/*.nav {
-  position: fixed;
-  width: 100vw;
-}
-
-.nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-.nav li {
-  float: left;
-}
-
-.nav li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
 
 
-.nav li a:hover {
-  background-color: #111;
-}*/
+
 
 </style>

@@ -1,17 +1,17 @@
 <template>
   <div>
-    <div class="row h-100 w-100">
-      <div class="d-flex col-6 justify-content-center align-items-center text-center" id="wrapper">
+    <div >
+      <div  id="wrapper">
         <h1>Digitall Score</h1>
       </div>
-      <div class="col-6">
-        <h2 class="display-4 mt-5">INSCRIPTION</h2>
+      <div class="form">
+        <h2 >INSCRIPTION</h2>
         <div class="alert alert-dismissible alert-danger" v-if="error">
           <button type="button" class="close" data-dismiss="alert" @click="dismissError">&times;</button>
           <h4 class="alert-heading">Une erreur est survenue lors de l'inscription :</h4>
           <p class="mb-0">{{ error.message }}</p>
         </div>
-        <div class="mt-5">
+        <div class="form2">
           <form method="post" @submit.prevent="onSubmit(email, password, firstname, name)">
             <div class="form-group">
               <input
@@ -50,13 +50,13 @@
               />
             </div>
             <div class="form-group">
-              <input class="btn btn-info btn-lg btn-block" type="submit" value="Inscription" />
+              <input class="btn1" type="submit" value="Inscription" />
             </div>
           </form>
           <hr />
-          <p class="p-1 text-center m-5">Déjà un compte ?</p>
+          <p >Déjà un compte ?</p>
           <div class="form-group">
-            <input class="btn btn-warning btn-lg btn-block" @click="login" value="Se connecter" />
+            <input class="btn-warning" @click="login" value="Se connecter" />
           </div>
         </div>
       </div>
@@ -126,14 +126,112 @@ export default {
 <style scoped>
 #wrapper {
   background-image: url("/img/deux.png");
-  background-position: center;
+
+  float: left;
   background-size: cover;
   height: 100vh;
+  background-position: center;
+  width: 45%;
 }
 
 #wrapper h1 {
   color: white;
   font-size: 5em;
   white-space: nowrap;
+  text-align: center;
+  margin-top: 50vh;
 }
+
+.form{
+float:right;
+min-width: 50%;
+height: 100vh;
+line-height: 3;
+align-self: center;
+padding-right: 2%;
+display:block;
+}
+
+.form-group {
+width:100%;
+}
+
+.form-control{
+    width: 100%;  
+    font-size: 1.271875rem;
+    padding: 1vh;
+    line-height: 1.5;
+    margin-top: 2vh;
+    
+}
+
+.btn1 {
+  font-size: 1.511875rem;
+  color: #fff;
+  background-color: #008cba;
+  border-color: #008cba;
+  text-decoration: none;
+  width: 100%;
+  padding: 1vh;
+  margin-left: 0.9vh;
+  margin-top: 3vh;
+  cursor: pointer;
+  margin-bottom: 3vh;
+}
+
+.btn1:hover {
+  color: #fff;
+  background-color: #006f94;
+  border-color: #006687;
+}
+
+.btn1.focus {
+  color: #fff;
+  background-color: #006f94;
+  border-color: #006687;
+}
+
+
+
+.btn-warning:hover {
+  color: #fff;
+  background-color: #d08002;
+  border-color: #d08002;
+}
+
+
+.btn-warning.focus {
+  color: #fff;
+  background-color: #d08002;
+  border-color: #d08002;
+}
+
+.btn-warning{
+
+font-size: 1.511875rem;
+  color: #fff;
+  background-color: #E99002;
+  border-color: #d08002;
+  text-decoration: none;
+  width: 99%;
+  padding: 1vh;
+  margin-top: 2vh;
+  text-align: center;
+  padding-right: 0vh;
+  cursor: pointer;
+}
+
+ p{
+   text-align: center;
+   margin-top: 3vh;
+   margin-bottom: 3vh;
+  font-family: 'Montserrat Bold', sans-serif;
+ }
+
+ h2{
+
+   font-size: 3.71875rem;
+ }
+
+
 </style>
