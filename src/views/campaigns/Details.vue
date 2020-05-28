@@ -44,11 +44,15 @@
             </div>
             <div class="mt-5">
               <div v-for="objective in campaigns.campaigns_objectives" :key="objective.id">
-                <h2 class="display-5 text-white">Objectif '{{ objective.objective.name }}'</h2>
-                <div v-for="kpi in objective.kpi_campaigns_objectives" :key="kpi.id">
-                  <p class="text-white">KPI : {{ kpi.kpi.name }}</p>
-                  <p class="text-white">Pondération : {{ kpi.weight }}</p>
-                  <p class="text-white">Objectif valeur : {{ kpi.objectivesValue }}</p>
+                <h2
+                  class="display-5 text-white"
+                >Objectif {{ objective.objective.name }} (Pondération : {{ objective.weight }}% / Budget : {{ objective.budgetPart }}%)</h2>
+                <div class="row">
+                  <div v-for="kpi in objective.kpi_campaigns_objectives" :key="kpi.id" class="col-md-4">
+                    <p class="text-white">KPI : {{ kpi.kpi.name }}</p>
+                    <p class="text-white">Pondération : {{ kpi.weight }}%</p>
+                    <p class="text-white">Objectif valeur : {{ kpi.objectivesValue }}</p>
+                  </div>
                 </div>
                 <InputKpi :id="objective.id" :campaign="campaigns.id" />
               </div>
