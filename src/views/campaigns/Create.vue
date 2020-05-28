@@ -76,6 +76,9 @@ export default {
     function dismissError() {
       error.value = null;
     }
+    function back() {
+      $router.back();
+    }
     function onSubmit(advertiser, name, product, budget) {
       $store
         .dispatch("campaigns/create", {
@@ -98,7 +101,8 @@ export default {
       budget,
       error,
       dismissError,
-      onSubmit
+      onSubmit,
+      back
     };
   }
 };

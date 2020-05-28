@@ -3,20 +3,20 @@
     method="post"
     @submit.prevent="onSubmit(weight, objectivesValue, kpiId)"
   >
-    <input v-model="weight" type="text" name="weight" placeholder="Weight" />
-    <input
+    <input class="form-control" v-model="weight" type="text" name="weight" placeholder="%" />
+    <input class="form-control"
       v-model="objectivesValue"
       type="text"
       name="objectivesValue"
-      placeholder="Value"
+      placeholder="Valeur de l'objectif"
     />
-    <select v-model="kpiId" name="kpiId">
-      <option disabled value="">Choose</option>
+    <select class="form-control" v-model="kpiId" name="kpiId">
+      <option disabled value="">Choisir un KPI</option>
       <option v-for="option in kpi" :value="option.id" :key="option.id">{{
         option.name
       }}</option>
     </select>
-    <button type="submit">Create</button>
+    <input type="submit" class="form-control btn btn-primary btn-lg" value="Créer" />
   </form>
 </template>
 <script>
