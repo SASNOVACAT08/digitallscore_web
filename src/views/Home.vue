@@ -136,20 +136,20 @@ top:-100px;
 
 
 #menu{
-
-  line-height: 40px;
+  margin-bottom: 20%;
+  line-height: 45px;
 }
 
 #campn {
-  width: 20%;;
+  width: 30%;;
 }
 #kpi {
-  width: 20%;
+  width: 30%;
 }
 
 #logout{
 
-  width: 20%;
+  width: 30%;
 }
 
 #logo{

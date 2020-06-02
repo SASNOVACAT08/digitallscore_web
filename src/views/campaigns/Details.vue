@@ -1,12 +1,12 @@
 <template>
   <div id="campagne">
+    <img id="logo" src="/img/DigitallScore-Logoblanc.png">
     <div class="container">
       <div class="row">
         <div class="col">
-          <h1 class="display-3 text-center m-5 text-white">Finalisation de la campagne</h1>
-          <div class="text-center m-3">
-            <button class="btn btn-danger btn-sm" @click="back">Retour</button>
-          </div>
+          <h1 class="display-3 text-center m-5 text-white"><svg id="back" class="bi bi-arrow-left-circle-fill" width="0.5em" height="0.5em" viewBox="0 0 16 16" fill="red" xmlns="http://www.w3.org/2000/svg" @click="back">
+        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.646 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L6.207 7.5H11a.5.5 0 0 1 0 1H6.207l2.147 2.146z"/>
+        </svg>Finalisation de la campagne</h1>
           <div v-if="campaigns">
             <div class="card">
               <div class="card-body">
@@ -94,6 +94,19 @@ export default {
 </script>
 <style scoped>
 #campagne {
-  background-color: #1e1e1e;
+  background-image:url("/img/detail.jpeg");
+  background-size: cover;
+}
+
+#logo{
+  position: absolute;
+  top: -50px;
+  left: 10px;
+   width: 260px;
+  height: 260px;
+}
+
+#back{
+  margin-right: 10px;
 }
 </style>
