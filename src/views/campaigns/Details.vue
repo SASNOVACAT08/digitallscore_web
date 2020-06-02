@@ -108,5 +108,6 @@ export default {
 
 #back{
   margin-right: 10px;
+  cursor: pointer;
 }
 </style>

@@ -7,12 +7,15 @@
       </div>
       <div class="col-6">
         <h2 class="display-4 mt-5">CONNEXION </h2>
-        
-        <div class="alert alert-dismissible alert-danger" v-if="error">
+       <div id="modal" class="modal-dialog modal-dialog" role="document" v-if="error">
+    <div class="modal-content">
+      <div class="modal-header">
           <button type="button" class="close" data-dismiss="alert" @click="dismissError">&times;</button>
           <h4 class="alert-heading">Une erreur est survenue lors de la connexion :</h4>
           <p class="mb-0">{{ error.message }}</p>
         </div>
+       </div>
+       </div>
         <div id="form" class="mt-5">
           <form method="post" @submit.prevent="onSubmit(email, password)">
             <div class="form-group">
@@ -147,7 +150,12 @@ export default {
 }
 
 
-
+#modal{
+text-decoration: none;
+  position: fixed;
+  padding-left: 30px;
+  color:red;
+}
 </style>
 
 

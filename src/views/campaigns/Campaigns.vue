@@ -21,7 +21,7 @@
           </h2>
           <ul id="liste" class="list-group list-group-flush">
             <li class="list-group-item" v-for="campaign in campaigns" :key="campaign.id">
-              <router-link
+              <router-link id="campname"
                 :to="{ name: 'details_campaigns', params: { id: campaign.id } }"
               >{{ campaign.name }}</router-link>
             </li>
@@ -81,6 +81,7 @@ export default {
 }
 #back{
   padding-top: 10px;
+  cursor: pointer;
 }
 #create{
 
@@ -89,9 +90,12 @@ export default {
 
 #liste{
   font-size: 2em;
-  padding-left: 3%;
+  padding-left: 3%;  
 }
+ #campname{
 
+   text-decoration: none;
+ }
 
 
 #logo{
