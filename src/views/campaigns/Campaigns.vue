@@ -65,7 +65,7 @@ export default {
 <style scoped>
 
 #wrapper {
-  background-image: url("/img/campagne.jpeg");
+  background-image: url("/img/campagne.jpg");
   background-position: left;
   background-size: cover;
   height: 100vh;

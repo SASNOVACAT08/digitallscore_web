@@ -94,7 +94,7 @@ export default {
 </script>
 <style scoped>
 #campagne {
-  background-image:url("/img/detail.jpeg");
+  background-image:url("/img/detail.jpg");
   background-size: cover;
 }
 

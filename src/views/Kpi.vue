@@ -166,7 +166,7 @@ export default {
 }
 
 #wrapper {
-  background-image: url("/img/kpi.jpeg");
+  background-image: url("/img/kpi.jpg");
   background-position: left;
   background-size: cover;
   height: 100vh;

@@ -109,8 +109,10 @@ export default {
 </script>
 <style scoped>
 #campagne {
-  background-color: #1e1e1e;
+ background-image: url("/img/campagne2.jpg");
   height: 100vh;
   width: 100vw;
+  background-size: cover;
+  background-position: left;
 }
 </style>
