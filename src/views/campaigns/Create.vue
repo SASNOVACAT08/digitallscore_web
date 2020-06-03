@@ -1,66 +1,44 @@
 <template>
-  <div id="campagne">
-    <form
-    method="post"
-    @submit.prevent="onSubmit(advertiser, name, product, budget)"
-  >
-    <input
-      v-model="advertiser"
-      type="text"
-      name="advertiser"
-      placeholder="Advertiser"
-    />
-    <input v-model="name" type="text" name="name" placeholder="Name" />
-    <input v-model="product" type="text" name="product" placeholder="Product" />
-    <input v-model="budget" type="number" name="budget" placeholder="Budget" />
-    <button type="submit">Create</button>
-  </form>
+  <div>
+    <CreateCampaign v-if="step === 0" @idCampaign="getObjectives($event)" />
+    <div
+      v-for="(objective, index) in objectives.campaigns_objectives"
+      :key="objective.id"
+    >
+      <Objective
+        v-if="index + 1 === step"
+        :id="objective.id"
+        :idObjective="objective.objective.id"
+        :idCampaign="objectives.id"
+        @next="step++"
+      />
+    </div>
   </div>
 </template>
 <script>
+import CreateCampaign from "./../../components/CreateCampaign.vue";
+import Objective from "./../../components/Objective.vue";
 import { ref } from "@vue/composition-api";
 
 export default {
   name: "Create",
+  components: {
+    CreateCampaign,
+    Objective
+  },
   setup(props, context) {
-    const { $store, $router } = context.root;
-    const advertiser = ref();
-    const name = ref();
-    const product = ref();
-    const budget = ref();
-
-    const error = ref(null);
-    function dismissError() {
-      error.value = null;
-    }
-    function onSubmit(advertiser, name, product, budget) {
-      $store.dispatch("campaigns/create", {
-        advertiser,
-        name,
-        product,
-        budget,
-        ended: false,
-        startedAt: "2010-10-10",
-        endedAt: "2010-10-10"
-      });
-      $router.push("/campaigns");
+    const { Campaigns } = context.root.$FeathersVuex.api;
+    const step = ref(0);
+    const objectives = ref({});
+    function getObjectives(idCampaign) {
+      Campaigns.get(idCampaign).then(data => (objectives.value = data));
+      step.value = 1;
     }
     return {
-      advertiser,
-      name,
-      product,
-      budget,
-      error,
-      dismissError,
-      onSubmit
+      getObjectives,
+      objectives,
+      step
     };
   }
 };
 </script>
-<style scoped>
-#campagne {
-  background-color: #1e1e1e;
-  height: 100vh;
-  width: 100vw;
-}
-</style>

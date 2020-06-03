@@ -20,8 +20,7 @@
   </form>
 </template>
 <script>
-import { ref } from "@vue/composition-api";
-import { computed } from "@vue/composition-api";
+import { ref, computed } from "@vue/composition-api";
 import { useFind } from "feathers-vuex";
 
 export default {
@@ -46,17 +45,12 @@ export default {
       params: kpiParams
     });
     function onSubmit(weight, objectivesValue, kpiId) {
-      $store.dispatch("campaigns/patch", [
-        props.campaign,
-        {
-          kpi: {
-            weight: weight,
-            objectivesValue: objectivesValue,
-            campaignsObjectiveId: props.id,
-            kpiId: kpiId
-          }
-        }
-      ]);
+      $store.dispatch("kpi-campaigns-objectives/create", {
+        weight: weight,
+        objectivesValue: objectivesValue,
+        campaignsObjectiveId: props.id,
+        kpiId: kpiId
+      });
     }
     return {
       onSubmit,

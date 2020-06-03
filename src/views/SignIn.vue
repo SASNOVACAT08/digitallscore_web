@@ -1,14 +1,26 @@
 <template>
   <div>
     <div class="row h-100 w-100">
-      <div class="d-flex col-6 justify-content-center align-items-center text-center" id="wrapper">
+      <div
+        class="d-flex col-6 justify-content-center align-items-center text-center"
+        id="wrapper"
+      >
         <h1>Digitall Score</h1>
       </div>
       <div class="col-6">
         <h2 class="display-4 mt-5">CONNEXION</h2>
         <div class="alert alert-dismissible alert-danger" v-if="error">
-          <button type="button" class="close" data-dismiss="alert" @click="dismissError">&times;</button>
-          <h4 class="alert-heading">Une erreur est survenue lors de la connexion :</h4>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            @click="dismissError"
+          >
+            &times;
+          </button>
+          <h4 class="alert-heading">
+            Une erreur est survenue lors de la connexion :
+          </h4>
           <p class="mb-0">{{ error.message }}</p>
         </div>
         <div class="mt-5">
@@ -32,7 +44,11 @@
               />
             </div>
             <div class="form-group">
-              <input class="btn btn-info btn-lg btn-block" type="submit" value="Connexion" />
+              <input
+                class="btn btn-info btn-lg btn-block"
+                type="submit"
+                value="Connexion"
+              />
             </div>
           </form>
           <hr />
@@ -44,9 +60,15 @@
             <input class="btn btn-info btn-lg btn-block" value="LINKEDIN" />
           </div>
           <hr />
-          <p class="p-1 text-center m-5">Ou inscrivez-vous tout simplement...</p>
+          <p class="p-1 text-center m-5">
+            Ou inscrivez-vous tout simplement...
+          </p>
           <div class="form-group">
-            <input class="btn btn-warning btn-lg btn-block" @click="register" value="S'inscrire" />
+            <input
+              class="btn btn-warning btn-lg btn-block"
+              @click="register"
+              value="S'inscrire"
+            />
           </div>
         </div>
       </div>

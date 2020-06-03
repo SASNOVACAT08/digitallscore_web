@@ -11,13 +11,22 @@
       </div>
       <div class="row">
         <div class="col">
-          <router-link class="btn btn-primary btn-lg" :to="{ name: 'create_campaigns' }">Créer une campagne</router-link>
+          <router-link
+            class="btn btn-primary btn-lg"
+            :to="{ name: 'create_campaigns' }"
+            >Créer une campagne</router-link
+          >
           <h2 class="display-4 m-5">Liste des campagnes</h2>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item" v-for="campaign in campaigns" :key="campaign.id">
+            <li
+              class="list-group-item"
+              v-for="campaign in campaigns"
+              :key="campaign.id"
+            >
               <router-link
                 :to="{ name: 'details_campaigns', params: { id: campaign.id } }"
-              >{{ campaign.name }}</router-link>
+                >{{ campaign.name }}</router-link
+              >
             </li>
           </ul>
         </div>

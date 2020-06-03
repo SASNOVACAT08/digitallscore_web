@@ -9,7 +9,9 @@
           </div>
           <form method="post" @submit.prevent="onSubmit(name)">
             <div class="form-group">
-              <label class="col-form-label col-form-label-lg" for="kpiForm">Nom</label>
+              <label class="col-form-label col-form-label-lg" for="kpiForm"
+                >Nom</label
+              >
               <input
                 class="form-control form-control-lg"
                 type="text"
@@ -19,7 +21,11 @@
               />
             </div>
             <div class="form-group">
-              <input class="btn btn-primary btn-block btn-lg" type="submit" value="Créer" />
+              <input
+                class="btn btn-primary btn-block btn-lg"
+                type="submit"
+                value="Créer"
+              />
             </div>
           </form>
         </div>
@@ -27,16 +33,23 @@
       <div class="row">
         <div class="col">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item" v-for="kp in kpi" :key="kp.id">{{ kp.name }} <span class="btn btn-danger" @click="prepareDeleteKpi(kp.id)"> x</span></li>
+            <li class="list-group-item" v-for="kp in kpi" :key="kp.id">
+              {{ kp.name }}
+              <span class="btn btn-danger" @click="prepareDeleteKpi(kp.id)">
+                x</span
+              >
+            </li>
           </ul>
         </div>
       </div>
       <div v-if="visible">
         <p>
-        La suppression d'un kpi peut entrainer la suppression d'une partie des
-        campagnes.
+          La suppression d'un kpi peut entrainer la suppression d'une partie des
+          campagnes.
         </p>
-        <button class="btn btn-danger" @click="deleteKpi()">Supprimer quand meme</button>
+        <button class="btn btn-danger" @click="deleteKpi()">
+          Supprimer quand meme
+        </button>
       </div>
     </div>
   </div>
