@@ -1,29 +1,26 @@
 <template>
   <div id="home">
-      <img id="logo" src="/img/DigitallScore-Logoblanc.png">
-      <img id="logo2" src="/img/Logo_ResponsiveBlanc.png">
     <div class="container h-100">
       <div class="row h-100 justify-content-center align-items-center">
         <div class="col text-center">
-          
-         
           <div id="menu" v-if="$store.state.auth.user">
             <br />
             <br />
-            <router-link id="campn"
-              
+            <router-link
+              id="campn"
               class="btn btn-primary btn-lg"
               :to="{ name: 'campaigns' }"
             >Campagnes</router-link>
             <br />
             <br />
-            <router-link id="kpi" class="btn btn-primary btn-lg" :to="{ name: 'kpi' }">Gestion des KPIs</router-link>
+            <router-link
+              id="kpi"
+              class="btn btn-primary btn-lg"
+              :to="{ name: 'kpi' }"
+            >Gestion des KPIs</router-link>
             <br />
             <br />
-            <button id="logout"
-              class="btn btn-danger btn-lg"
-              @click="logout"
-            >Déconnexion</button>
+            <button id="logout" class="btn btn-danger btn-lg" @click="logout">Déconnexion</button>
           </div>
           <div v-else>
             <h1>Digitall Score</h1>
@@ -56,25 +53,20 @@ export default {
   background-position: center;
   background-size: cover;
   height: 100vh;
-  width: 100vw;
 }
 
 #home h1 {
   color: white;
   font-size: 8em;
   white-space: nowrap;
-  
+
   margin-bottom: 5%;
 }
-#home p{
-
- color: white;
+#home p {
+  color: white;
   font-size: 1.5em;
   white-space: nowrap;
   margin-bottom: 6%;
-  
-
-
 }
 .btn-login {
   padding: 1rem 2rem;
@@ -129,112 +121,103 @@ export default {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 157, 196, 0.5);
   box-shadow: 0 0 0 0.2rem rgba(38, 157, 196, 0.5);
 }
-#logo{
-position: absolute;
-right: 100px;
-top:-100px;
+#logo {
+  position: absolute;
+  right: 100px;
+  top: -100px;
 }
 .row {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
 }
 
-#menu{
+#menu {
   margin-bottom: 20%;
   line-height: 45px;
 }
 
 #campn {
-  width: 30%;;
+  width: 30%;
 }
 #kpi {
   width: 30%;
 }
 
-#logout{
-
+#logout {
   width: 30%;
 }
 
-#logo{
+#logo {
   position: absolute;
   top: -50px;
   left: 10px;
-   width: 260px;
+  width: 260px;
   height: 260px;
 }
-#logo2{
+#logo2 {
   position: relative;
   width: 310px;
   visibility: hidden;
   display: none;
- 
 }
 .h-100 {
-    height: 100% ;
+  height: 100%;
 }
 @media all and (max-width: 1023px) {
   #home {
-  background-image: url("/img/home.png");
-  background-position: center;
-  background-size: cover;
-  height: 120vh;
-  width: 100%;
- 
-}
-#home h1 {
-  color: white;
-  font-size: 3em;
-  white-space: nowrap;
-  
-  margin-bottom: 5%;
-}
-#home p{
-
- color: white;
-  font-size: 0.6em;
-  white-space: nowrap;
-  margin-bottom: 6%;
-}
-#logo{
-visibility: hidden;
-}
-#logo2{
-  visibility: visible;
-  display: block;
-  margin: auto;
-  
-  
-}
-
-.h-100 {
-height: 60% !important;
-}
-#menu{
-  margin-bottom: 20%;
-  line-height: 45px;
-}
-
-#campn {
-  width: 100%;
-  font-size:1em ;
+    background-image: url("/img/home.png");
+    background-position: center;
+    background-size: cover;
+    height: 120vh;
+    width: 100%;
   }
-#kpi {
-  width: 100%;
-   font-size:1em ;
-   
-}
+  #home h1 {
+    color: white;
+    font-size: 3em;
+    white-space: nowrap;
 
-#logout{
+    margin-bottom: 5%;
+  }
+  #home p {
+    color: white;
+    font-size: 0.6em;
+    white-space: nowrap;
+    margin-bottom: 6%;
+  }
+  #logo {
+    visibility: hidden;
+  }
+  #logo2 {
+    visibility: visible;
+    display: block;
+    margin: auto;
+  }
 
-  width: 100%;
-   font-size:1em ;
-}
+  .h-100 {
+    height: 60% !important;
+  }
+  #menu {
+    margin-bottom: 20%;
+    line-height: 45px;
+  }
 
+  #campn {
+    width: 100%;
+    font-size: 1em;
+  }
+  #kpi {
+    width: 100%;
+    font-size: 1em;
+  }
+
+  #logout {
+    width: 100%;
+    font-size: 1em;
+  }
 }
 </style>

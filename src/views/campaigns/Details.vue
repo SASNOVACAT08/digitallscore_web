@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row h-100">
         <div class="col">
-          <h1 class="display-3 text-center m-5 text-white">
+          <h1 class="text-center m-5 text-white">
             <svg
               id="back"
               class="bi bi-arrow-left-circle-fill"
@@ -114,13 +114,13 @@ export default {
 </script>
 <style scoped>
 #campagne {
-  background-image: url("/img/detail.jpg");
+  background: url("/img/detail.jpg") fixed;
   background-size: cover;
-  height: 100%;
+  min-height: 100vh;
 }
 
 #logo {
-  position: absolute;
+  position: fixed;
   top: -50px;
   left: 10px;
   width: 260px;
