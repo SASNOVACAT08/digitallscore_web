@@ -94,16 +94,15 @@ export default {
 </script>
 <style scoped>
 #campagne {
-  background-image:url("/img/detail.jpg");
+  background-image: url("/img/detail.jpg");
   background-size: cover;
-  
 }
 
 #logo{
   position: absolute;
   top: -50px;
   left: 10px;
-   width: 260px;
+  width: 260px;
   height: 260px;
 }
 
