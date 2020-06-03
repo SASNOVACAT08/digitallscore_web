@@ -115,4 +115,5 @@ export default {
 
   text-shadow: black 0.1em 0.1em 0.2em;
 }
+
 </style>

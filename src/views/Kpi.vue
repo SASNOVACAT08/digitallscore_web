@@ -5,8 +5,10 @@
       <h1>Gestion des KPIs</h1>
     </div>
     <div class="col-6">
+      <img id="logo2" src="/img/Logo_ResponsiveBlanc.png">
       <div class="row">
         <div class="col">
+         
           <svg
             id="back"
             class="bi bi-arrow-left-circle-fill"
@@ -22,6 +24,7 @@
               d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.646 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L6.207 7.5H11a.5.5 0 0 1 0 1H6.207l2.147 2.146z"
             />
           </svg>
+           <h1 id="titre2">Gestion des KPIs</h1>
           <div class="text-center m-3">
             <form method="post" @submit.prevent="onSubmit(name)">
               <div class="form-group">
@@ -164,7 +167,12 @@ export default {
   width: 230px;
   height: 230px;
 }
-
+#logo2{
+  position: relative;
+  width: 260px;
+  visibility: hidden;
+  display: none;
+}
 #wrapper {
   background-image: url("/img/kpi.jpg");
   background-position: left;
@@ -186,5 +194,65 @@ export default {
   color: white;
   font-size: 5em;
   margin-bottom: 90%;
+}
+#titre2{
+  
+  visibility: hidden;
+}
+
+
+
+
+
+@media all and (max-width: 1023px) {
+#wrapper {
+  background-image: url("/img/kpi.jpg");
+  background-position: left;
+  background-size: cover;
+height: 100%;
+  position: absolute;
+}
+
+#wrapper h1 {
+ visibility: hidden;
+ display: none;
+}
+#titre2{
+visibility: visible;
+display:block;
+text-align: center;
+}
+#liste {
+  font-size: 2em;
+  background: none;
+  margin: auto;
+  display:block;
+}
+
+.col-6{
+  max-width: 100%;
+    max-height: 400vh;
+  color: white;
+      margin: auto;
+ 
+}
+.row {
+ 
+    margin-right: 0px;
+    margin-left: 0px;
+}
+#logo{
+visibility: hidden;
+}
+#logo2{
+  visibility: visible;
+  display: inline;
+}
+#titre2{
+  display: inline-flex;
+  visibility: visible;
+  
+}
+
 }
 </style>

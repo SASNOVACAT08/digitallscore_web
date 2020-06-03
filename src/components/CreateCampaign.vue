@@ -15,6 +15,7 @@
         )
       "
     >
+    <div id=test>
       <input
         v-model="advertiser"
         type="text"
@@ -51,8 +52,10 @@
           >{{ option.name }}</option
         >
       </select>
+    </div>
       <button type="submit">Create</button>
     </form>
+    
   </div>
 </template>
 <script>
@@ -128,9 +131,25 @@ export default {
 };
 </script>
 <style scoped>
-#campagne {
-  background-color: #1e1e1e;
-  height: 100vh;
-  width: 100vw;
+
+
+input{
+
+  
+  margin-left: 10px;
+  vertical-align: center;
+  font-size: 1.3em;
+
+}
+select{
+font-size: 1.5em;
+margin-left: 10px;
+}
+
+
+#test{
+  margin-left:10% ;
+  margin-top:20%;
+
 }
 </style>

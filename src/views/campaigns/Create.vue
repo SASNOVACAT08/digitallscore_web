@@ -1,5 +1,6 @@
 <template>
   <div id="campagne">
+    <img id="logo" src="/img/DigitallScore-Logoblanc.png">
     <CreateCampaign v-if="step === 0" @idCampaign="getObjectives($event)" />
     <div
       v-for="(objective, index) in objectives.campaigns_objectives"
@@ -55,4 +56,13 @@ export default {
   background-size: cover;
   background-position: left;
 }
+#logo{
+  position: absolute;
+  top: -50px;
+  left: 10px;
+   width: 260px;
+  height: 260px;
+}
+
+
 </style>

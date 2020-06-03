@@ -6,6 +6,7 @@
         <h1>Digitall Score</h1>
       </div>
       <div class="col-6">
+        <img id="logo2" src="/img/Logo_ResponsiveBlanc.png">
         <h2 class="display-4 mt-5">INSCRIPTION</h2>
       
       <div id="modal" class="modal-dialog modal-dialog" role="document" v-if="error">
@@ -151,12 +152,24 @@ export default {
 }
 
 
+#logo2{
+  position: relative;
+  width: 260px;
+  visibility: hidden;
+  display: none;
+  
+  
+  
+  
+
+}
 #logo{
   position: absolute;
-  top: -50px;
-  left: 10px;
+  top: -40px;
+  left: 0;
    width: 260px;
-  height: 260px;
+   height: 260px;
+  
 }
 
 #form{
@@ -169,6 +182,86 @@ text-decoration: none;
   padding-left: 30px;
   color: red;
 
+}
+@media all and (max-width: 1023px) {
+#wrapper {
+  background-image: url("/img/deux.png");
+  background-position: center;
+  background-size: cover;
+height: 170vh;
+  position: absolute;
+}
+
+#wrapper h1 {
+ visibility: hidden;
+ display: none;
+}
+
+#logoin{
+  width: 10%;
+  height: 10%;
+  margin-left: 10%;
+}
+
+#logofb{
+  width: 10%;
+  height: 10%;
+}
+
+#logos{
+  text-align: center;
+  margin-bottom: 5%;
+  
+  
+  }
+
+#btnsignup{
+  width: 94%;
+  margin-left: 3%;
+  margin-bottom: 10%;
+
+
+}
+#logo{
+visibility: hidden;
+}
+#logo2{
+  visibility: visible;
+  display: inline;
+}
+#form{
+  padding-bottom: 0%;
+  color: white;
+  
+}
+#modal{
+text-decoration: none;
+  position: fixed;
+  padding-left: 30px;
+  color:red;
+}
+
+
+
+ h2{
+
+   font-size: 2em;
+   padding-left: 10%;
+   
+ }
+
+.col-6{
+  max-width: 100%;
+    max-height: 400vh;
+  color: white;
+      margin: auto;
+ 
+}
+.row {
+ 
+    margin-right: 0px;
+    margin-left: 0px;
+}
 }
 
 </style>

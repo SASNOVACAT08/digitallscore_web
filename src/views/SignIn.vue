@@ -143,11 +143,6 @@ export default {
   width: 260px;
   visibility: hidden;
   display: none;
-  
-  
-  
-  
-
 }
 #logo{
   position: absolute;
@@ -178,7 +173,7 @@ text-decoration: none;
   background-image: url("/img/deux.png");
   background-position: center;
   background-size: cover;
-height: 150vh;
+height: 170vh;
   position: absolute;
 }
 
@@ -247,7 +242,11 @@ text-decoration: none;
       margin: auto;
  
 }
-
+.row {
+ 
+    margin-right: 0px;
+    margin-left: 0px;
+}
 }
 
 </style>

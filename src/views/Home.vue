@@ -170,9 +170,10 @@ top:-100px;
 }
 #logo2{
   position: relative;
-  width: 260px;
+  width: 310px;
   visibility: hidden;
   display: none;
+ 
 }
 .h-100 {
     height: 100% ;
@@ -184,6 +185,7 @@ top:-100px;
   background-size: cover;
   height: 120vh;
   width: 100%;
+ 
 }
 #home h1 {
   color: white;
@@ -204,7 +206,10 @@ visibility: hidden;
 }
 #logo2{
   visibility: visible;
-  display: inline;
+  display: block;
+  margin: auto;
+  
+  
 }
 
 .h-100 {
