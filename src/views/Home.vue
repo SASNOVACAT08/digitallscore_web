@@ -1,28 +1,32 @@
 <template>
   <div id="home">
+      <img id="logo" src="/img/DigitallScore-Logoblanc.png">
     <div class="container h-100">
       <div class="row h-100 justify-content-center align-items-center">
         <div class="col text-center">
-          <h1>Digitall Score</h1>
-          <div v-if="$store.state.auth.user">
+          
+         
+          <div id="menu" v-if="$store.state.auth.user">
             <br />
             <br />
-            <router-link
-              v-if="$store.state.auth.user"
+            <router-link id="campn"
+              
               class="btn btn-primary btn-lg"
               :to="{ name: 'campaigns' }"
             >Campagnes</router-link>
             <br />
             <br />
-            <router-link class="btn btn-primary btn-lg" :to="{ name: 'kpi' }">Gestion des KPIs</router-link>
+            <router-link id="kpi" class="btn btn-primary btn-lg" :to="{ name: 'kpi' }">Gestion des KPIs</router-link>
             <br />
             <br />
-            <button
+            <button id="logout"
               class="btn btn-danger btn-lg"
               @click="logout"
             >Déconnexion</button>
           </div>
           <div v-else>
+            <h1>Digitall Score</h1>
+            <p>"Pilotez vos indicateurs de campagnes avec efficacité"</p>
             <router-link class="btn btn-info btn-login" :to="{ name: 'signin' }">Connexion</router-link>
           </div>
         </div>
@@ -58,8 +62,19 @@ export default {
   color: white;
   font-size: 8em;
   white-space: nowrap;
+  
+  margin-bottom: 5%;
 }
+#home p{
 
+ color: white;
+  font-size: 1.5em;
+  white-space: nowrap;
+  margin-bottom: 6%;
+  
+
+
+}
 .btn-login {
   padding: 1rem 2rem;
   font-size: 1.191875rem;
@@ -112,5 +127,36 @@ export default {
 .show > .button.dropdown-toggle:focus {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 157, 196, 0.5);
   box-shadow: 0 0 0 0.2rem rgba(38, 157, 196, 0.5);
+}
+#logo{
+position: absolute;
+right: 100px;
+top:-100px;
+}
+
+
+#menu{
+  margin-bottom: 20%;
+  line-height: 45px;
+}
+
+#campn {
+  width: 30%;;
+}
+#kpi {
+  width: 30%;
+}
+
+#logout{
+
+  width: 30%;
+}
+
+#logo{
+  position: absolute;
+  top: -50px;
+  left: 10px;
+   width: 260px;
+  height: 260px;
 }
 </style>

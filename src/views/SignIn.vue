@@ -1,29 +1,22 @@
 <template>
   <div>
     <div class="row h-100 w-100">
-      <div
-        class="d-flex col-6 justify-content-center align-items-center text-center"
-        id="wrapper"
-      >
+      <div class="d-flex col-6 justify-content-center align-items-center text-center" id="wrapper">
+        <img id="logo" src="/img/DigitallScore-Logoblanc.png">
         <h1>Digitall Score</h1>
       </div>
       <div class="col-6">
-        <h2 class="display-4 mt-5">CONNEXION</h2>
-        <div class="alert alert-dismissible alert-danger" v-if="error">
-          <button
-            type="button"
-            class="close"
-            data-dismiss="alert"
-            @click="dismissError"
-          >
-            &times;
-          </button>
-          <h4 class="alert-heading">
-            Une erreur est survenue lors de la connexion :
-          </h4>
+        <h2 class="display-4 mt-5">CONNEXION </h2>
+       <div id="modal" class="modal-dialog modal-dialog" role="document" v-if="error">
+    <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="alert" @click="dismissError">&times;</button>
+          <h4 class="alert-heading">Une erreur est survenue lors de la connexion :</h4>
           <p class="mb-0">{{ error.message }}</p>
         </div>
-        <div class="mt-5">
+       </div>
+       </div>
+        <div id="form" class="mt-5">
           <form method="post" @submit.prevent="onSubmit(email, password)">
             <div class="form-group">
               <input
@@ -53,22 +46,16 @@
           </form>
           <hr />
           <p class="p-1 text-center m-5">Ou connectez-vous autrement...</p>
-          <div class="form-group">
-            <input class="btn btn-primary btn-lg btn-block" value="FACEBOOK" />
-          </div>
-          <div class="form-group">
-            <input class="btn btn-info btn-lg btn-block" value="LINKEDIN" />
+          <div id="logos" class="form-group">
+            <img id="logofb" src="/img/Facebook.png" />
+            <img id="logoin" src="/img/LinkedIn.png" />
           </div>
           <hr />
           <p class="p-1 text-center m-5">
             Ou inscrivez-vous tout simplement...
           </p>
           <div class="form-group">
-            <input
-              class="btn btn-warning btn-lg btn-block"
-              @click="register"
-              value="S'inscrire"
-            />
+            <input id="btnsignup" class="btn btn-warning btn-lg btn-block" @click="register" value="S'inscrire" />
           </div>
         </div>
       </div>
@@ -131,5 +118,48 @@ export default {
   color: white;
   font-size: 5em;
   white-space: nowrap;
+  margin-bottom: 20%;
+}
+
+#logoin{
+  width: 5%;
+  height: 5%;
+  margin-left: 10%;
+}
+
+#logofb{
+  width: 5%;
+  height: 5%;
+}
+
+#logos{
+  text-align: center;
+  margin-bottom: 5%;
+  }
+
+#btnsignup{
+  width: 94%;
+  margin-left: 3%;
+}
+
+#logo{
+  position: absolute;
+  top: -50px;
+  left: 10px;
+   width: 260px;
+  height: 260px;
+}
+
+#form{
+
+  padding-top: 5%;
+}
+
+
+#modal{
+text-decoration: none;
+  position: fixed;
+  padding-left: 30px;
+  color:red;
 }
 </style>
