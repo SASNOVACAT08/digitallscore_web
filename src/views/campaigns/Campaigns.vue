@@ -23,7 +23,8 @@
             <li class="list-group-item" v-for="campaign in campaigns" :key="campaign.id">
               <router-link id="campname"
                 :to="{ name: 'details_campaigns', params: { id: campaign.id } }"
-              >{{ campaign.name }}</router-link>
+                >{{ campaign.name }}</router-link
+              >
             </li>
           </ul>
         </div>

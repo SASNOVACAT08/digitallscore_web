@@ -37,7 +37,11 @@
               />
             </div>
             <div class="form-group">
-              <input class="btn btn-info btn-lg btn-block" type="submit" value="Connexion" />
+              <input
+                class="btn btn-info btn-lg btn-block"
+                type="submit"
+                value="Connexion"
+              />
             </div>
           </form>
           <hr />
@@ -47,7 +51,9 @@
             <img id="logoin" src="/img/LinkedIn.png" />
           </div>
           <hr />
-          <p class="p-1 text-center m-5">Ou inscrivez-vous tout simplement...</p>
+          <p class="p-1 text-center m-5">
+            Ou inscrivez-vous tout simplement...
+          </p>
           <div class="form-group">
             <input id="btnsignup" class="btn btn-warning btn-lg btn-block" @click="register" value="S'inscrire" />
           </div>
@@ -157,5 +163,3 @@ text-decoration: none;
   color:red;
 }
 </style>
-
-

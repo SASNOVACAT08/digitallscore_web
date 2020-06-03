@@ -1,107 +1,47 @@
 <template>
   <div id="campagne">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h1 class="display-3 text-center m-5 text-white">Création d'une campagne</h1>
-          <div class="text-center m-3">
-            <button class="btn btn-danger btn-sm" @click="back">Retour</button>
-          </div>
-          <form method="post" @submit.prevent="onSubmit(advertiser, name, product, budget)">
-            <div class="form-group">
-              <label class="col-form-label col-form-label-lg text-white" for="advertiser">Annonceur</label>
-              <input
-                class="form-control form-control-lg"
-                type="text"
-                id="advertiser"
-                name="advertiser"
-                v-model="advertiser"
-              />
-            </div>
-            <div class="form-group">
-              <label class="col-form-label col-form-label-lg text-white" for="name">Campagne</label>
-              <input
-                class="form-control form-control-lg"
-                type="text"
-                id="name"
-                name="name"
-                v-model="name"
-              />
-            </div>
-            <div class="form-group">
-              <label
-                class="col-form-label col-form-label-lg text-white"
-                for="product"
-              >Marque / Produit</label>
-              <input
-                class="form-control form-control-lg"
-                type="text"
-                id="product"
-                name="product"
-                v-model="product"
-              />
-            </div>
-            <div class="form-group">
-              <label class="col-form-label col-form-label-lg text-white" for="advertiser">Budget</label>
-              <input
-                class="form-control form-control-lg"
-                type="number"
-                id="budget"
-                name="budget"
-                v-model="budget"
-              />
-            </div>
-            <div class="form-group">
-              <input class="btn btn-primary btn-block btn-lg" type="submit" value="Créer" />
-            </div>
-          </form>
-        </div>
-      </div>
+    <CreateCampaign v-if="step === 0" @idCampaign="getObjectives($event)" />
+    <div
+      v-for="(objective, index) in objectives.campaigns_objectives"
+      :key="objective.id"
+    >
+      <Objective
+        v-if="index + 1 === step"
+        :id="objective.id"
+        :idObjective="objective.objective.id"
+        :idCampaign="objectives.id"
+        @next="step++"
+      />
     </div>
   </div>
 </template>
 <script>
+import CreateCampaign from "./../../components/CreateCampaign.vue";
+import Objective from "./../../components/Objective.vue";
 import { ref } from "@vue/composition-api";
 
 export default {
   name: "Create",
+  components: {
+    CreateCampaign,
+    Objective
+  },
   setup(props, context) {
-    const { $store, $router } = context.root;
-    const advertiser = ref();
-    const name = ref();
-    const product = ref();
-    const budget = ref();
-
-    const error = ref(null);
-    function dismissError() {
-      error.value = null;
-    }
+    const { Campaigns } = context.root.$FeathersVuex.api;
+    const { $router } = context.root;
+    const step = ref(0);
+    const objectives = ref({});
     function back() {
       $router.back();
     }
-    function onSubmit(advertiser, name, product, budget) {
-      $store
-        .dispatch("campaigns/create", {
-          advertiser,
-          name,
-          product,
-          budget,
-          ended: false,
-          startedAt: "2010-10-10",
-          endedAt: "2010-10-10"
-        })
-        .then(() => {
-          $router.push({ name: "campaigns" });
-        });
+    function getObjectives(idCampaign) {
+      Campaigns.get(idCampaign).then(data => (objectives.value = data));
+      step.value = 1;
     }
     return {
-      advertiser,
-      name,
-      product,
-      budget,
-      error,
-      dismissError,
-      onSubmit,
+      getObjectives,
+      objectives,
+      step,
       back
     };
   }
