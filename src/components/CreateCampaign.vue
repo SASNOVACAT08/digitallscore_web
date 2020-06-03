@@ -133,23 +133,5 @@ export default {
 <style scoped>
 
 
-input{
 
-  
-  margin-left: 10px;
-  vertical-align: center;
-  font-size: 1.3em;
-
-}
-select{
-font-size: 1.5em;
-margin-left: 10px;
-}
-
-
-#test{
-  margin-left:10% ;
-  margin-top:20%;
-
-}
 </style>
