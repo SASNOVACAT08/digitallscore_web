@@ -96,6 +96,7 @@ export default {
 #campagne {
   background-image:url("/img/detail.jpg");
   background-size: cover;
+  
 }
 
 #logo{
@@ -109,5 +110,9 @@ export default {
 #back{
   margin-right: 10px;
   cursor: pointer;
+}
+.text-white{
+
+  text-shadow: black 0.1em 0.1em 0.2em;
 }
 </style>

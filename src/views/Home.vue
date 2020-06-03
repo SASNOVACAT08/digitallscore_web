@@ -1,6 +1,7 @@
 <template>
   <div id="home">
       <img id="logo" src="/img/DigitallScore-Logoblanc.png">
+      <img id="logo2" src="/img/Logo_ResponsiveBlanc.png">
     <div class="container h-100">
       <div class="row h-100 justify-content-center align-items-center">
         <div class="col text-center">
@@ -133,7 +134,15 @@ position: absolute;
 right: 100px;
 top:-100px;
 }
-
+.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
 
 #menu{
   margin-bottom: 20%;
@@ -158,5 +167,69 @@ top:-100px;
   left: 10px;
    width: 260px;
   height: 260px;
+}
+#logo2{
+  position: relative;
+  width: 260px;
+  visibility: hidden;
+  display: none;
+}
+.h-100 {
+    height: 100% ;
+}
+@media all and (max-width: 1023px) {
+  #home {
+  background-image: url("/img/home.png");
+  background-position: center;
+  background-size: cover;
+  height: 120vh;
+  width: 100%;
+}
+#home h1 {
+  color: white;
+  font-size: 3em;
+  white-space: nowrap;
+  
+  margin-bottom: 5%;
+}
+#home p{
+
+ color: white;
+  font-size: 0.6em;
+  white-space: nowrap;
+  margin-bottom: 6%;
+}
+#logo{
+visibility: hidden;
+}
+#logo2{
+  visibility: visible;
+  display: inline;
+}
+
+.h-100 {
+height: 60% !important;
+}
+#menu{
+  margin-bottom: 20%;
+  line-height: 45px;
+}
+
+#campn {
+  width: 100%;
+  font-size:1em ;
+  }
+#kpi {
+  width: 100%;
+   font-size:1em ;
+   
+}
+
+#logout{
+
+  width: 100%;
+   font-size:1em ;
+}
+
 }
 </style>
