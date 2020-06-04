@@ -193,4 +193,15 @@ export default {
   height: 100vh;
   width: 100vw;
 }
+
+ @media all and (max-width: 1023px) { 
+
+
+h1{
+font-size: 2em;
+
+}
+
+
+ }
 </style>

@@ -252,7 +252,7 @@ text-decoration: none;
 
 .col-6{
   max-width: 100%;
-    max-height: 400vh;
+    max-height: 120vh;
   color: white;
       margin: auto;
  

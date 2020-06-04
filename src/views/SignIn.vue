@@ -173,7 +173,7 @@ text-decoration: none;
   background-image: url("/img/deux.png");
   background-position: center;
   background-size: cover;
-height: 170vh;
+height: 130vh;
   position: absolute;
 }
 
@@ -195,7 +195,7 @@ height: 170vh;
 
 #logos{
   text-align: center;
-  margin-bottom: 5%;
+  margin-bottom: 1%;
   
   
   }
@@ -237,9 +237,10 @@ text-decoration: none;
 
 .col-6{
   max-width: 100%;
-    max-height: 400vh;
+    max-height: 120vh;
   color: white;
       margin: auto;
+      
  
 }
 .row {
@@ -247,6 +248,8 @@ text-decoration: none;
     margin-right: 0px;
     margin-left: 0px;
 }
+
+
 }
 
 </style>

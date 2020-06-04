@@ -39,7 +39,7 @@
               </div>
 
               <div class="form-group">
-                <input class="btn btn-primary btn-block btn-lg" type="submit" value="Créer" />
+                <input  class="btn btn-primary btn-block btn-lg" type="submit" value="Créer" />
               </div>
             </form>
 
@@ -177,18 +177,19 @@ export default {
   background-image: url("/img/kpi.jpg");
   background-position: left;
   background-size: cover;
-  height: 100vh;
+  height: 300vh;
 }
 #back {
-  padding-top: 10px;
+margin-top: 10px;
   cursor: pointer;
 }
 #liste {
   font-size: 2em;
 }
 
-#cross {
+#create {
   cursor: pointer;
+  
 }
 #wrapper h1 {
   color: white;
@@ -196,9 +197,10 @@ export default {
   margin-bottom: 90%;
 }
 #titre2{
-  
   visibility: hidden;
 }
+
+
 
 
 
@@ -209,7 +211,7 @@ export default {
   background-image: url("/img/kpi.jpg");
   background-position: left;
   background-size: cover;
-height: 100%;
+height: 300vh;
   position: absolute;
 }
 
@@ -227,11 +229,12 @@ text-align: center;
   background: none;
   margin: auto;
   display:block;
+  
 }
 
 .col-6{
   max-width: 100%;
-    max-height: 400vh;
+    max-height: 120%;
   color: white;
       margin: auto;
  
