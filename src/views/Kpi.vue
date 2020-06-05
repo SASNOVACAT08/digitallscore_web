@@ -177,7 +177,8 @@ export default {
   background-image: url("/img/kpi.jpg");
   background-position: left;
   background-size: cover;
-  height: 300vh;
+  height: 100vh;
+
 }
 #back {
 margin-top: 10px;
@@ -185,6 +186,7 @@ margin-top: 10px;
 }
 #liste {
   font-size: 2em;
+ 
 }
 
 #create {
@@ -211,8 +213,8 @@ margin-top: 10px;
   background-image: url("/img/kpi.jpg");
   background-position: left;
   background-size: cover;
-height: 300vh;
   position: absolute;
+  visibility: hidden;
 }
 
 #wrapper h1 {
@@ -229,14 +231,17 @@ text-align: center;
   background: none;
   margin: auto;
   display:block;
+  max-height:  100%;
+  
   
 }
 
 .col-6{
-  max-width: 100%;
-    max-height: 120%;
+  min-width: 100%;
+    min-height: 100%;
   color: white;
       margin: auto;
+      background-image: url("/img/kpi.jpg");
  
 }
 .row {
@@ -249,12 +254,20 @@ visibility: hidden;
 }
 #logo2{
   visibility: visible;
-  display: inline;
+  display: block;
+  margin: auto;
 }
 #titre2{
   display: inline-flex;
   visibility: visible;
   
+}
+#back {
+margin-top: 10px;
+display: block;
+margin: auto;
+margin-bottom: 5%;
+  cursor: pointer;
 }
 
 }
