@@ -43,7 +43,7 @@ export default {
 <style scoped>
 #campagne {
   background: linear-gradient(rgba(30, 30, 30, 0.666), rgba(30, 30, 30, 0.666)), url("/img/campagne2.jpg");
-  min-height: 100vh;
+  height: 100vh;
   background-size: cover;
   background-position: center;
 }

@@ -7,60 +7,48 @@
     </div>
 
     <ul class="list-unstyled components">
-      <p>Dummy Heading</p>
+      <h4>Menu</h4>
+      <li v-if="!$store.state.auth.user">
+        <router-link :to="{ name: 'signin' }">Connexion</router-link>
+      </li>
       <li class="active">
         <a
           href="#homeSubmenu"
           data-toggle="collapse"
           aria-expanded="false"
           class="dropdown-toggle"
-        >Home</a>
+        >Campagnes</a>
         <ul class="collapse list-unstyled" id="homeSubmenu">
           <li>
-            <a href="#">Home 1</a>
+            <a href="#">Créer une campagne</a>
           </li>
           <li>
-            <a href="#">Home 2</a>
+            <a href="#">Historique</a>
           </li>
           <li>
-            <a href="#">Home 3</a>
+            <a href="#">Rechercher</a>
           </li>
         </ul>
       </li>
       <li>
-        <a href="#">About</a>
-      </li>
-      <li>
-        <a
-          href="#pageSubmenu"
-          data-toggle="collapse"
-          aria-expanded="false"
-          class="dropdown-toggle"
-        >Pages</a>
-        <ul class="collapse list-unstyled" id="pageSubmenu">
-          <li>
-            <a href="#">Page 1</a>
-          </li>
-          <li>
-            <a href="#">Page 2</a>
-          </li>
-          <li>
-            <a href="#">Page 3</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">Portfolio</a>
-      </li>
-      <li>
-        <a href="#">Contact</a>
+        <a href="#">A propos</a>
       </li>
     </ul>
   </nav>
 </template>
 
 <script>
-export default {};
+export default {
+    setup(props, context) {
+    const { $store } = context.root;
+    function logout() {
+        $store.dispatch("auth/logout");
+    }
+    return {
+      logout
+    };
+  }
+};
 </script>
 
 <style>

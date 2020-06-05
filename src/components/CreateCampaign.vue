@@ -1,13 +1,24 @@
 <template>
   <div class="row">
     <div class="col">
-      <h1 class="text-center m-5 text-white">Création d'une campagne</h1>
+      <h1 class="display-3 text-center m-5 text-white">Création d'une campagne</h1>
       <div class="text-center m-3">
         <button class="btn btn-danger btn-sm" @click="back">Retour</button>
       </div>
       <form
         method="post"
-        @submit.prevent="onSubmit(advertiser, name, product, budget,  provider, startedAt, endedAt, disciplineId)"
+        @submit.prevent="
+          onSubmit(
+            advertiser,
+            name,
+            product,
+            budget,
+            provider,
+            startedAt,
+            endedAt,
+            disciplineId
+          )
+        "
       >
         <div class="row">
           <div class="form-group col-md-4">
@@ -44,15 +55,29 @@
             />
           </div>
         </div>
-        <div class="form-group">
-          <label class="col-form-label col-form-label-lg text-white" for="advertiser">Budget</label>
-          <input
-            class="form-control form-control-lg"
-            type="number"
-            id="budget"
-            name="budget"
-            v-model="budget"
-          />
+
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label class="col-form-label col-form-label-lg text-white" for="advertiser">Budget</label>
+            <input
+              class="form-control form-control-lg"
+              type="number"
+              id="budget"
+              name="budget"
+              v-model="budget"
+            />
+          </div>
+
+          <div class="form-group col-md-6">
+            <label class="col-form-label col-form-label-lg text-white" for="advertiser">Prestataire</label>
+            <input
+              class="form-control form-control-lg"
+              type="text"
+              id="provider"
+              name="provider"
+              v-model="provider"
+            />
+          </div>
         </div>
 
         <div class="row">
@@ -191,5 +216,6 @@ export default {
 #campagne {
   background-color: #1e1e1e;
   height: 100vh;
+  width: 100vw;
 }
 </style>

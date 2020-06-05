@@ -3,7 +3,7 @@
     <div class="container h-100">
       <div class="row h-100 justify-content-center align-items-center">
         <div class="col text-center">
-          <div id="menu" v-if="$store.state.auth.user">
+          <div class="menu" v-if="$store.state.auth.user">
             <br />
             <br />
             <router-link
@@ -75,69 +75,14 @@ export default {
   border-radius: 0px;
 }
 
-.button {
-  padding: 0.5rem 1rem;
-  font-size: 1.171875rem;
-  line-height: 1.5;
-  border-radius: 0px;
-  color: #fff;
-  background-color: #008cba;
-  border-color: #008cba;
-}
-
-.button:hover {
-  color: #fff;
-  background-color: #006f94;
-  border-color: #006687;
-}
-
-.button:focus,
-.button.focus {
-  color: #fff;
-  background-color: #006f94;
-  border-color: #006687;
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 157, 196, 0.5);
-  box-shadow: 0 0 0 0.2rem rgba(38, 157, 196, 0.5);
-}
-
-.button.disabled,
-.button:disabled {
-  color: #fff;
-  background-color: #008cba;
-  border-color: #008cba;
-}
-
-.button:not(:disabled):not(.disabled):active,
-.button:not(:disabled):not(.disabled).active,
-.show > .button.dropdown-toggle {
-  color: #fff;
-  background-color: #006687;
-  border-color: #005c7a;
-}
-
-.button:not(:disabled):not(.disabled):active:focus,
-.button:not(:disabled):not(.disabled).active:focus,
-.show > .button.dropdown-toggle:focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 157, 196, 0.5);
-  box-shadow: 0 0 0 0.2rem rgba(38, 157, 196, 0.5);
-}
 #logo {
   position: absolute;
   right: 100px;
   top: -100px;
 }
-.row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-}
 
-#menu {
-  margin-bottom: 20%;
+
+.menu {
   line-height: 45px;
 }
 
@@ -168,13 +113,12 @@ export default {
 .h-100 {
   height: 100%;
 }
-@media all and (max-width: 1023px) {
+@media all and (max-width: 768px) {
   #home {
     background-image: url("/img/home.png");
     background-position: center;
     background-size: cover;
-    height: 120vh;
-    width: 100%;
+    height: 100vh;
   }
   #home h1 {
     color: white;
