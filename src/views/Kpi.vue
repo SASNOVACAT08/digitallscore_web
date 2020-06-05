@@ -242,6 +242,8 @@ text-align: center;
   color: white;
       margin: auto;
       background-image: url("/img/kpi.jpg");
+      background-position: left;
+  background-size: cover;
  
 }
 .row {
