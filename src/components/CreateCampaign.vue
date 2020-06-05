@@ -11,7 +11,8 @@
           provider,
           startedAt,
           endedAt,
-          disciplineId
+          disciplineId,
+          leverId
         )
       "
     >
@@ -121,7 +122,8 @@ export default {
       provider,
       startedAt,
       endedAt,
-      disciplineId
+      disciplineId,
+      leverId
     ) {
       $store
         .dispatch("campaigns/create", {
@@ -133,7 +135,8 @@ export default {
           ended: false,
           startedAt,
           endedAt,
-          disciplineId
+          disciplineId,
+          leverId
         })
         .then(data => context.emit("idCampaign", data.id));
     }
