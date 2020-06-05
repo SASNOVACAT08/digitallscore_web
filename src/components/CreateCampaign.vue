@@ -1,58 +1,113 @@
 <template>
-  <div id="campagne">
-    <form
-      method="post"
-      @submit.prevent="
-        onSubmit(
-          advertiser,
-          name,
-          product,
-          budget,
-          provider,
-          startedAt,
-          endedAt,
-          disciplineId
-        )
-      "
-    >
-      <input
-        v-model="advertiser"
-        type="text"
-        name="advertiser"
-        placeholder="Advertiser"
-      />
-      <input
-        v-model="provider"
-        type="text"
-        name="provider"
-        placeholder="Service Provider"
-      />
-      <input v-model="name" type="text" name="name" placeholder="Name" />
-      <input
-        v-model="product"
-        type="text"
-        name="product"
-        placeholder="Product"
-      />
-      <input
-        v-model="budget"
-        type="number"
-        name="budget"
-        placeholder="Budget"
-      />
-      <input v-model="startedAt" type="date" name="startedAt" />
-      <input v-model="endedAt" type="date" name="endedAt" />
-      <select v-model="disciplineId" name="disciplineId">
-        <option disabled value="">Choose</option>
-        <option
-          v-for="option in discipline"
-          :value="option.id"
-          :key="option.id"
-          >{{ option.name }}</option
-        >
-      </select>
-      <button type="submit">Create</button>
-    </form>
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center m-5 text-white">Création d'une campagne</h1>
+      <div class="text-center m-3">
+        <button class="btn btn-danger btn-sm" @click="back">Retour</button>
+      </div>
+      <form
+        method="post"
+        @submit.prevent="onSubmit(advertiser, name, product, budget,  provider, startedAt, endedAt, disciplineId)"
+      >
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label class="col-form-label col-form-label-lg text-white" for="advertiser">Annonceur</label>
+            <input
+              class="form-control form-control-lg"
+              type="text"
+              id="advertiser"
+              name="advertiser"
+              v-model="advertiser"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label class="col-form-label col-form-label-lg text-white" for="name">Campagne</label>
+            <input
+              class="form-control form-control-lg"
+              type="text"
+              id="name"
+              name="name"
+              v-model="name"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label
+              class="col-form-label col-form-label-lg text-white"
+              for="product"
+            >Marque / Produit</label>
+            <input
+              class="form-control form-control-lg"
+              type="text"
+              id="product"
+              name="product"
+              v-model="product"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-form-label col-form-label-lg text-white" for="advertiser">Budget</label>
+          <input
+            class="form-control form-control-lg"
+            type="number"
+            id="budget"
+            name="budget"
+            v-model="budget"
+          />
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label class="col-form-label col-form-label-lg text-white" for="startedAt">Début</label>
+            <input
+              class="form-control form-control-lg"
+              type="date"
+              id="startedAt"
+              name="startedAt"
+              v-model="startedAt"
+            />
+          </div>
+
+          <div class="form-group col-md-6">
+            <label class="col-form-label col-form-label-lg text-white" for="endedAt">Fin</label>
+            <input
+              class="form-control form-control-lg"
+              type="date"
+              id="endedAt"
+              name="endedAt"
+              v-model="endedAt"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label class="col-form-label col-form-label-lg text-white" for="disciplineId">Discipline</label>
+            <select
+              class="form-control form-control-lg"
+              id="disciplineId"
+              name="disciplineId"
+              v-model="discipline"
+            >
+              <option disabled value>Choisir une discipline</option>
+              <option
+                v-for="option in discipline"
+                :value="option.id"
+                :key="option.id"
+              >{{ option.name }}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label class="col-form-label col-form-label-lg text-white" for="levierId">Levier</label>
+            <select class="form-control form-control-lg" id="levierId" name="levierId">
+              <option disabled value>Ruben l'as pas fait :(</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <input class="btn btn-primary btn-block btn-lg" type="submit" value="Créer" />
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 <script>
@@ -62,7 +117,7 @@ import { useFind } from "feathers-vuex";
 export default {
   name: "CreateCampaign",
   setup(props, context) {
-    const { $store } = context.root;
+    const { $store, $router } = context.root;
     const { Discipline } = context.root.$FeathersVuex.api;
     const advertiser = ref();
     const name = ref();
@@ -85,6 +140,10 @@ export default {
       model: Discipline,
       params: disciplineParams
     });
+
+    function back() {
+      $router.back();
+    }
 
     function onSubmit(
       advertiser,
@@ -118,6 +177,7 @@ export default {
       provider,
       error,
       dismissError,
+      back,
       onSubmit,
       startedAt,
       endedAt,
@@ -131,6 +191,5 @@ export default {
 #campagne {
   background-color: #1e1e1e;
   height: 100vh;
-  width: 100vw;
 }
 </style>
