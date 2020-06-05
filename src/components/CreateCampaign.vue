@@ -42,10 +42,21 @@
       />
       <input v-model="startedAt" type="date" name="startedAt" />
       <input v-model="endedAt" type="date" name="endedAt" />
-      <select v-model="disciplineId" name="disciplineId">
-        <option disabled value="">Choose</option>
+      <select
+        @change="changeLever()"
+        v-model="disciplineId"
+        name="disciplineId"
+      >
         <option
           v-for="option in discipline"
+          :value="option.id"
+          :key="option.id"
+          >{{ option.name }}</option
+        >
+      </select>
+      <select v-model="leverId" name="leverId">
+        <option
+          v-for="option in leverOption"
           :value="option.id"
           :key="option.id"
           >{{ option.name }}</option
@@ -63,7 +74,7 @@ export default {
   name: "CreateCampaign",
   setup(props, context) {
     const { $store } = context.root;
-    const { Discipline } = context.root.$FeathersVuex.api;
+    const { Discipline, Lever } = context.root.$FeathersVuex.api;
     const advertiser = ref();
     const name = ref();
     const product = ref();
@@ -72,19 +83,35 @@ export default {
     const startedAt = ref();
     const endedAt = ref();
     const disciplineId = ref();
+    const leverId = ref();
+    const leverOption = ref();
     const error = ref(null);
     function dismissError() {
       error.value = null;
     }
-    const disciplineParams = computed(() => {
+    const params = computed(() => {
       return {
         query: {}
       };
     });
     const { items: discipline } = useFind({
       model: Discipline,
-      params: disciplineParams
+      params: params
     });
+    const { items: lever } = useFind({
+      model: Lever,
+      params: params
+    });
+
+    function changeLever() {
+      let temp = [];
+      lever.value.map(data => {
+        if (data.disciplineId === disciplineId.value) {
+          temp.push(data);
+        }
+      });
+      leverOption.value = temp;
+    }
 
     function onSubmit(
       advertiser,
@@ -122,7 +149,11 @@ export default {
       startedAt,
       endedAt,
       discipline,
-      disciplineId
+      disciplineId,
+      leverId,
+      leverOption,
+      changeLever,
+      lever
     };
   }
 };
