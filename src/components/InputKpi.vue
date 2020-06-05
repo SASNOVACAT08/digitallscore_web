@@ -26,8 +26,7 @@ import { useFind } from "feathers-vuex";
 export default {
   name: "InputKpi",
   props: {
-    id: Number,
-    campaign: Number
+    id: Number
   },
   setup(props, context) {
     const { $store } = context.root;
