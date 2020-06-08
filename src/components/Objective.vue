@@ -53,6 +53,7 @@
               <p class="text-white">KPI ID : {{ kpiCampaignsObjective.id }}</p>
               <p class="text-white">Pondération : {{ kpiCampaignsObjective.weight }}%</p>
               <p class="text-white">Objectif valeur : {{ kpiCampaignsObjective.objectivesValue }}</p>
+              <br>
             </div>
           </div>
         </div>

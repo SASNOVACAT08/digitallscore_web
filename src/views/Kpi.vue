@@ -29,7 +29,7 @@
           </form>
 
           <ul class="list-group list-group-flush">
-            <li class="list-group-item liste text-white" v-for="kp in kpi" :key="kp.id">
+            <li class="list-group-item liste text-white" v-for="kp in kpis" :key="kp.id">
                 {{ kp.name }}
                 <svg
                   class="bi bi-x-circle-fill cross"
