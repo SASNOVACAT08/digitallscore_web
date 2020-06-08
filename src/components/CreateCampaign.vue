@@ -16,7 +16,8 @@
             provider,
             startedAt,
             endedAt,
-            disciplineId
+            disciplineId,
+            leverId
           )
         "
       >
@@ -107,24 +108,14 @@
         <div class="row">
           <div class="form-group col-md-6">
             <label class="col-form-label col-form-label-lg text-white" for="disciplineId">Discipline</label>
-            <select
-              class="form-control form-control-lg"
-              id="disciplineId"
-              name="disciplineId"
-              v-model="discipline"
-            >
-              <option disabled value>Choisir une discipline</option>
-              <option
-                v-for="option in discipline"
-                :value="option.id"
-                :key="option.id"
-              >{{ option.name }}</option>
+              <select @change="changeLever()" v-model="disciplineId" name="disciplineId" class="form-control form-control-lg">
+                <option v-for="option in discipline" :value="option.id" :key="option.id">{{ option.name }}</option>
             </select>
           </div>
           <div class="form-group col-md-6">
             <label class="col-form-label col-form-label-lg text-white" for="levierId">Levier</label>
-            <select class="form-control form-control-lg" id="levierId" name="levierId">
-              <option disabled value>Ruben l'as pas fait :(</option>
+            <select v-model="leverId" name="leverId">
+              <option v-for="option in leverOption" :value="option.id" :key="option.id">{{ option.name }}</option>
             </select>
           </div>
         </div>
@@ -143,7 +134,7 @@ export default {
   name: "CreateCampaign",
   setup(props, context) {
     const { $store, $router } = context.root;
-    const { Discipline } = context.root.$FeathersVuex.api;
+    const { Discipline, Lever } = context.root.$FeathersVuex.api;
     const advertiser = ref();
     const name = ref();
     const product = ref();
@@ -152,20 +143,36 @@ export default {
     const startedAt = ref();
     const endedAt = ref();
     const disciplineId = ref();
+    const leverId = ref();
+    const leverOption = ref();
     const error = ref(null);
     function dismissError() {
       error.value = null;
     }
-    const disciplineParams = computed(() => {
+    const params = computed(() => {
       return {
         query: {}
       };
     });
     const { items: discipline } = useFind({
       model: Discipline,
-      params: disciplineParams
+      params: params
+    });
+    const { items: lever } = useFind({
+      model: Lever,
+      params: params
     });
 
+    function changeLever() {
+      let temp = [];
+      lever.value.map(data => {
+        if (data.disciplineId === disciplineId.value) {
+          temp.push(data);
+        }
+      });
+      leverOption.value = temp;
+    }
+    
     function back() {
       $router.back();
     }
@@ -178,7 +185,8 @@ export default {
       provider,
       startedAt,
       endedAt,
-      disciplineId
+      disciplineId,
+      leverId
     ) {
       $store
         .dispatch("campaigns/create", {
@@ -190,7 +198,8 @@ export default {
           ended: false,
           startedAt,
           endedAt,
-          disciplineId
+          disciplineId,
+          leverId
         })
         .then(data => context.emit("idCampaign", data.id));
     }
@@ -207,7 +216,11 @@ export default {
       startedAt,
       endedAt,
       discipline,
-      disciplineId
+      disciplineId,
+      leverId,
+      leverOption,
+      changeLever,
+      lever
     };
   }
 };
