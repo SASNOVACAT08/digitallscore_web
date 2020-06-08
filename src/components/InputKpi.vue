@@ -16,7 +16,7 @@
         option.name
       }}</option>
     </select>
-    <input type="submit" class="form-control btn btn-primary btn-lg" value="Créer" />
+    <input type="submit" class="form-control btn btn-primary btn-lg" value="Ajouter" />
   </form>
 </template>
 <script>

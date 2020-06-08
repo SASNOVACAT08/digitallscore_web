@@ -4,9 +4,28 @@
     <div class="container">
       <div class="row h-100">
         <div class="col">
-          <h1 class="text-center m-5 text-white">
-            Détails de la campagne
-          </h1>
+          <h1 class="text-center m-5 text-white">Détails de la campagne</h1>
+          <div class="row" v-if="campaign.ended">
+            <div class="col">
+              <div class="alert alert-warning">
+              <p class="lead">La campagne a été créée, vous ne pouvez plus la modifier.</p>
+              <p class="lead">
+                Vous pourrez rentrer les résultats quand celle-ci sera
+                terminée.
+              </p>
+            </div>
+            </div>
+          </div>
+          <div class="row" v-else>
+            <div class="col">
+              <div class="alert alert-danger">
+              <p class="lead">
+                La campagne n'est pas validée, c'est bizarre on dirait un
+                bug...
+              </p>
+            </div>
+            </div>
+          </div>
           <div class="card">
             <div class="card-body">
               <div class="row">
@@ -34,8 +53,8 @@
                     {{ campaign.budget }}€
                   </p>
                   <p>
-                    <strong>Date de création :</strong>
-                    {{ campaign.createdAt }}
+                    <strong>Date de début / Date de fin :</strong>
+                    {{ campaign.startedAt }} / {{ campaign.endedAt }}
                   </p>
                 </div>
               </div>
@@ -44,9 +63,11 @@
           <div class="row mt-5">
             <div class="col-12">
               <div v-for="objective in campaign.campaigns_objectives" :key="objective.id">
-                <h2
-                  class="text-white"
-                >Objectif {{ objective.objective.name }} (Pondération : {{ objective.weight }}% / Budget : {{ objective.budgetPart }}%)</h2>
+                <h2 class="text-white">
+                  Objectif {{ objective.objective.name }} (Pondération :
+                  {{ objective.weight }}% / Budget :
+                  {{ objective.budgetPart }}%)
+                </h2>
                 <div class="row">
                   <div
                     v-for="kpi in objective.kpi_campaigns_objectives"
@@ -75,10 +96,21 @@ export default {
     idCampaign: Number
   },
   setup(props, context) {
+    const { $store } = context.root;
     const campaign = ref({});
     const { Campaigns } = context.root.$FeathersVuex.api;
     Campaigns.get(props.idCampaign).then(data => (campaign.value = data));
-    console.log(campaign);
+    validateCampaign();
+
+    function validateCampaign() {
+      $store.dispatch("campaigns/patch", [
+        props.idCampaign,
+        {
+          ended: true
+        }
+      ]);
+    }
+
     return {
       campaign
     };

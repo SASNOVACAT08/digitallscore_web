@@ -20,5 +20,9 @@ const routes = [
   { path: "/campaigns/:id", name: "details_campaigns", component: Details },
   { path: "/kpi", name: "kpi", component: Kpi }
 ];
-const router = new VueRouter({ routes });
+const router = new VueRouter({
+  routes,
+  linkActiveClass: "active",
+  linkExactActiveClass: "active"
+});
 export default router;

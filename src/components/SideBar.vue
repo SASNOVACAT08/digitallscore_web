@@ -10,27 +10,33 @@
       <h4 class="text-center">Menu</h4>
       <hr>
       <li v-if="!$store.state.auth.user">
-        <router-link :to="{ name: 'signin' }">Connexion</router-link>
+        <router-link exact :to="{ name: 'signin' }">Connexion</router-link>
+        <router-link exact :to="{ name: 'signup' }">Inscription</router-link>
       </li>
-      <li class="active">
+      <li v-if="$store.state.auth.user">
         <a
-          href="#homeSubmenu"
+          href="#campaignSubmenu"
           data-toggle="collapse"
           aria-expanded="false"
           class="dropdown-toggle"
         >Campagnes</a>
-        <ul class="collapse list-unstyled" id="homeSubmenu">
+        <ul class="collapse list-unstyled" id="campaignSubmenu">
           <li>
-            <a href="#">Créer une campagne</a>
+            <router-link exact :to="{ name: 'create_campaigns' }">Créer une campagne</router-link>
           </li>
           <li>
-            <a href="#">Historique</a>
-          </li>
-          <li>
-            <a href="#">Rechercher</a>
+            <router-link exact :to="{ name: 'campaigns' }">Historique</router-link>
           </li>
         </ul>
       </li>
+      <li v-if="$store.state.auth.user">
+        <router-link exact :to="{ name: 'kpi' }">Gestion KPIS</router-link>
+      </li>
+      <hr>
+      <li v-if="$store.state.auth.user">
+        <a href="#" @click="logout()">Déconnexion</a>
+      </li>
+      <hr>
       <li>
         <a href="#" @click="about()">A propos</a>
       </li>
@@ -51,9 +57,10 @@ export default {
     }
   },
   setup(props, context) {
-    const { $store } = context.root;
+    const { $store, $router } = context.root;
     function logout() {
         $store.dispatch("auth/logout");
+        $router.push("/");
     }
     return {
       logout
