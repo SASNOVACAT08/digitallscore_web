@@ -114,7 +114,7 @@
           </div>
           <div class="form-group col-md-6">
             <label class="col-form-label col-form-label-lg text-white" for="levierId">Levier</label>
-            <select v-model="leverId" name="leverId">
+            <select v-model="leverId" name="leverId" class="form-control form-control-lg">
               <option v-for="option in leverOption" :value="option.id" :key="option.id">{{ option.name }}</option>
             </select>
           </div>
