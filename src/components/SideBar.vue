@@ -2,12 +2,13 @@
   <!-- Sidebar  -->
   <nav id="sidebar">
     <div class="sidebar-header">
-      <img src="/img/DigitallScore-Logoblanc.png" alt="Logo" class="logo">
-      <img src="/img/Logo_ResponsiveBlanc.png" alt="Logo" class="logo-sm">
+      <img src="/img/DS_Logo_Blanc.svg" alt="Logo" class="logo">
+      <img src="/img/DS_Logo_Resp_Blanc.svg" alt="Logo" class="logo-sm">
     </div>
 
     <ul class="list-unstyled components">
-      <h4>Menu</h4>
+      <h4 class="text-center">Menu</h4>
+      <hr>
       <li v-if="!$store.state.auth.user">
         <router-link :to="{ name: 'signin' }">Connexion</router-link>
       </li>
@@ -31,7 +32,7 @@
         </ul>
       </li>
       <li>
-        <a href="#">A propos</a>
+        <a href="#" @click="about()">A propos</a>
       </li>
     </ul>
   </nav>
@@ -39,7 +40,17 @@
 
 <script>
 export default {
-    setup(props, context) {
+  methods: {
+    about() {
+      this.$swal({
+        title: "A propos de Digitall Score",
+        html:
+          '<p>Digitall Score est un outil de pilotage pour vos campagnes digitales.</p><br><p>Proposé uniquement par :</p><img class="text-center" src="/img/Logo_DigitallMakers.png">',
+        icon: "info"
+      });
+    }
+  },
+  setup(props, context) {
     const { $store } = context.root;
     function logout() {
         $store.dispatch("auth/logout");

@@ -1,8 +1,10 @@
 <template>
   <div id="home">
-    <div class="container h-100">
-      <div class="row h-100 justify-content-center align-items-center">
+    <div class="container vertical-center">
+      <div class="row">
         <div class="col text-center">
+            <h1>Digitall Score</h1>
+            <p>"Pilotez vos indicateurs de campagnes avec efficacité"</p>
           <div class="menu" v-if="$store.state.auth.user">
             <br />
             <br />
@@ -23,8 +25,6 @@
             <button id="logout" class="btn btn-danger btn-lg" @click="logout">Déconnexion</button>
           </div>
           <div v-else>
-            <h1>Digitall Score</h1>
-            <p>"Pilotez vos indicateurs de campagnes avec efficacité"</p>
             <router-link class="btn btn-info btn-login" :to="{ name: 'signin' }">Connexion</router-link>
           </div>
         </div>
@@ -52,7 +52,7 @@ export default {
   background-image: url("/img/home.png");
   background-position: center;
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 #home h1 {
@@ -118,20 +118,19 @@ export default {
     background-image: url("/img/home.png");
     background-position: center;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
   }
   #home h1 {
     color: white;
     font-size: 3em;
     white-space: nowrap;
 
-    margin-bottom: 5%;
+    margin-top: 20%;
   }
   #home p {
     color: white;
     font-size: 0.6em;
     white-space: nowrap;
-    margin-bottom: 6%;
   }
   #logo {
     visibility: hidden;

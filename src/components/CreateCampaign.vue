@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col">
-      <h1 class="display-3 text-center m-5 text-white">Création d'une campagne</h1>
+      <h1 class="text-center m-5 text-white">Création d'une campagne</h1>
       <div class="text-center m-3">
         <button class="btn btn-danger btn-sm" @click="back">Retour</button>
       </div>
@@ -228,7 +228,7 @@ export default {
 <style scoped>
 #campagne {
   background-color: #1e1e1e;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
 }
 </style>

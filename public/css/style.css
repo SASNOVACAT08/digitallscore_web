@@ -2,8 +2,6 @@
     PAGES
 ----------------------------------------------------- */
 
-
-
 /* ---------------------------------------------------
     PAGE HOME
 ----------------------------------------------------- */
@@ -205,13 +203,6 @@ a.article:hover {
 
 @media (max-width: 768px) {
 
-#campagne {
-    width: 100vw;
-}
-
-#home {
-    width: 100vw;
-}
   .sidebar-header .logo {
     display: none;
   }
@@ -230,7 +221,8 @@ a.article:hover {
     width: 100%;
   }
   #content.active {
-    width: calc(100% - 250px);
+    /* width: calc(100% - 250px); */
+    width: 100%;
   }
 
   #sidebarCollapse span:first-of-type,

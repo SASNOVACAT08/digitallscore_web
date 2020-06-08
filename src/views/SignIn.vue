@@ -39,6 +39,7 @@
             </div>
             <div class="form-group">
               <input class="btn btn-info btn-lg btn-block" type="submit" value="Connexion" />
+              <input class="btn btn-warning btn-lg btn-block" @click="register" value="S'inscrire" />
             </div>
           </form>
           <hr />
@@ -46,11 +47,6 @@
           <div id="logos" class="form-group">
             <img id="logofb" src="/img/Facebook.png" />
             <img id="logoin" src="/img/LinkedIn.png" />
-          </div>
-          <hr />
-          <p class="p-1 text-center m-5">Ou inscrivez-vous tout simplement...</p>
-          <div class="form-group">
-            <input id="btnsignup" class="btn btn-warning btn-lg btn-block" @click="register" value="S'inscrire" />
           </div>
         </div>
       </div>
@@ -168,12 +164,11 @@ text-decoration: none;
 
 
 
-@media all and (max-width: 1023px) {
+@media all and (max-width: 768px) {
 #wrapper {
   background-image: url("/img/deux.png");
   background-position: center;
   background-size: cover;
-height: 170vh;
   position: absolute;
 }
 
